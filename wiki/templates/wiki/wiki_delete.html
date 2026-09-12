@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Delete Wiki Entry</h1>
+
+    <p>Are you sure you want to delete "{{ wiki_entry.title }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">
+            Delete Entry
+        </button>
+
+        <a href="{% url 'wiki_detail' wiki_entry.pk %}" class="btn btn-secondary">
+            Cancel
+        </a>
+    </form>
+</div>
+
+{% endblock %}

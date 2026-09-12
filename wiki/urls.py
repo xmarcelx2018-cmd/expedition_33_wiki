@@ -8,5 +8,6 @@ urlpatterns = [
     path('locations/', views.WikiList.as_view(category='location'), name='locations'),
     path('create/', views.WikiCreate.as_view(), name='wiki_create'),
     path('<int:pk>/edit/', views.WikiUpdate.as_view(), name='wiki_edit'),
+    path('<int:pk>/delete/', views.WikiDelete.as_view(), name='wiki_delete'),
     path('<int:pk>/', views.WikiDetail.as_view(), name='wiki_detail'),
 ]

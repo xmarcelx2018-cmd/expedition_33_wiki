@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import WikiEntry
 from .forms import WikiEntryForm
 
@@ -55,3 +55,17 @@ class WikiUpdate(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return f'/wiki/{self.object.pk}/'
+
+class WikiDelete(LoginRequiredMixin, DeleteView):
+    """
+    Allow the author of a Wiki entry to delete it.
+    """
+    model = WikiEntry
+    template_name = 'wiki/wiki_delete.html'
+    context_object_name = 'wiki_entry'
+
+    def get_queryset(self):
+        return WikiEntry.objects.filter(author=self.request.user)
+
+    def get_success_url(self):
+        return '/wiki/characters/'
