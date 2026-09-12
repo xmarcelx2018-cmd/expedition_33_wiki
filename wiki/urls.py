@@ -2,7 +2,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+
     path('characters/', views.WikiList.as_view(category='character'), name='characters'),
     path('weapons/', views.WikiList.as_view(category='weapon'), name='weapons'),
     path('locations/', views.WikiList.as_view(category='location'), name='locations'),
+    path('create/', views.WikiCreate.as_view(), name='wiki_create'),
+    path('<int:pk>/', views.WikiDetail.as_view(), name='wiki_detail'),
 ]

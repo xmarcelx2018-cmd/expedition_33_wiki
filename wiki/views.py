@@ -1,5 +1,8 @@
-from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, DetailView, CreateView
 from .models import WikiEntry
+from .forms import WikiEntryForm
+
 
 class WikiList(ListView):
     """
@@ -21,3 +24,19 @@ class WikiDetail(DetailView):
     model = WikiEntry
     template_name = 'wiki/wiki_detail.html'
     context_object_name = 'wiki_entry'
+
+
+class WikiCreate(LoginRequiredMixin, CreateView):
+    """
+    Allow logged-in users to create a Wiki entry.
+    """
+    model = WikiEntry
+    form_class = WikiEntryForm
+    template_name = 'wiki/wiki_create.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return f'/wiki/{self.object.pk}/'
