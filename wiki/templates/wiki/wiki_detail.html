@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h1>{{ wiki_entry.title }}</h1>
+
+    <p><strong>Category:</strong> {{ wiki_entry.get_category_display }}</p>
+
+    <p><strong>Author:</strong> {{ wiki_entry.author }}</p>
+
+    <div>
+        {{ wiki_entry.content }}
+    </div>
+</div>
+
+{% endblock %}
