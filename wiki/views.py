@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from .models import WikiEntry
 
-# Create your views here.
+
+class WikiList(ListView):
+    """
+    Display all Wiki entries.
+    """
+    model = WikiEntry
+    template_name = 'wiki/wiki_list.html'
+    context_object_name = 'wiki_entries'
