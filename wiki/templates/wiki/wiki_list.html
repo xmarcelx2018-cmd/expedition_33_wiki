@@ -1,0 +1,13 @@
+<h1>Expedition 33 Wiki</h1>
+
+{% for entry in wiki_entries %}
+    <article>
+        <h2>{{ entry.title }}</h2>
+        <p><strong>Category:</strong> {{ entry.category }}</p>
+        <p>{{ entry.content }}</p>
+        <p><small>Created: {{ entry.created_on }}</small></p>
+        <p><small>Last updated: {{ entry.updated_on }}</small></p>
+    </article>
+{% empty %}
+    <p>No wiki entries available.</p>
+{% endfor %}
