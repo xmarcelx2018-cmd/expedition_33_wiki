@@ -194,3 +194,74 @@ a:hover {
     background-color: #9a3b3b;
     color: #ffffff;
 }
+
+/* Wiki forms */
+
+.form-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 2rem;
+}
+
+.form-card h1 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.wiki-form p {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.wiki-form label {
+    font-weight: bold;
+    color: #d6b36a;
+}
+
+.wiki-form input,
+.wiki-form select,
+.wiki-form textarea {
+    background-color: #111111;
+    color: #f5f5f5;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 0.75rem;
+    font: inherit;
+}
+
+.wiki-form textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.wiki-form input:focus,
+.wiki-form select:focus,
+.wiki-form textarea:focus {
+    outline: 2px solid #d6b36a;
+    border-color: #d6b36a;
+}
+
+.wiki-form .errorlist {
+    color: #e38b8b;
+    margin: 0 0 0.5rem;
+    padding-left: 1.2rem;
+}
+
+.form-submit {
+    background-color: #d6b36a;
+    color: #111111;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    background-color: #f0d394;
+}
