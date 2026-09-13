@@ -9,22 +9,22 @@
 <body>
 
     <nav>
-        <a href="/wiki/characters/">CHARACTERS</a>
-        <a href="/wiki/weapons/">WEAPONS</a>
-        <a href="/wiki/locations/">LOCATIONS</a>
+    <a href="{% url 'characters' %}">CHARACTERS</a>
+    <a href="{% url 'weapons' %}">WEAPONS</a>
+    <a href="{% url 'locations' %}">LOCATIONS</a>
 
-        {% if user.is_authenticated %}
-            <a href="/wiki/create/">ADD ENTRY</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'wiki_create' %}">ADD ENTRY</a>
 
-            <form method="POST" action="{% url 'logout' %}" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit">LOGOUT</button>
-            </form>
-        {% else %}
-            <a href="{% url 'register' %}">REGISTER</a>
-            <a href="{% url 'login' %}">LOGIN</a>
-        {% endif %}
-    </nav>
+        <form method="POST" action="{% url 'logout' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">LOGOUT</button>
+        </form>
+    {% else %}
+        <a href="{% url 'register' %}">REGISTER</a>
+        <a href="{% url 'login' %}">LOGIN</a>
+    {% endif %}
+</nav>
 
     {% block content %}
     {% endblock %}
