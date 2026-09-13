@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <h1>Expedition 33 Wiki</h1>
 
 {% for entry in wiki_entries %}
@@ -11,3 +15,5 @@
 {% empty %}
     <p>No wiki entries available.</p>
 {% endfor %}
+
+{% endblock %}
