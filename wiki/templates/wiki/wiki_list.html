@@ -2,18 +2,43 @@
 
 {% block content %}
 
-<h1>Expedition 33 Wiki</h1>
+<div class="container wiki-list">
 
-{% for entry in wiki_entries %}
-    <article>
-        <h2>{{ entry.title }}</h2>
-        <p><strong>Category:</strong> {{ entry.category }}</p>
-        <p>{{ entry.content }}</p>
-        <p><small>Created: {{ entry.created_on }}</small></p>
-        <p><small>Last updated: {{ entry.updated_on }}</small></p>
-    </article>
-{% empty %}
-    <p>No wiki entries available.</p>
-{% endfor %}
+    <h1>{{ view.category|title }}s</h1>
+
+    <div class="entry-grid">
+        {% for entry in wiki_entries %}
+            <article class="wiki-card">
+
+                <h2>
+                    <a href="{% url 'wiki_detail' entry.pk %}">
+                        {{ entry.title }}
+                    </a>
+                </h2>
+
+                <p class="category">
+                    {{ entry.get_category_display }}
+                </p>
+
+                <p class="entry-content">
+                    {{ entry.content|truncatewords:30 }}
+                </p>
+
+                <div class="entry-meta">
+                    <p>Created: {{ entry.created_on|date:"d M Y" }}</p>
+                    <p>Updated: {{ entry.updated_on|date:"d M Y" }}</p>
+                </div>
+
+                <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
+                    Read more
+                </a>
+
+            </article>
+        {% empty %}
+            <p>No wiki entries available.</p>
+        {% endfor %}
+    </div>
+
+</div>
 
 {% endblock %}

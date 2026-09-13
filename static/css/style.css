@@ -1,4 +1,127 @@
 body {
-    background-color: #111;
-    color: white;
+    margin: 0;
+    background-color: #111111;
+    color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background-color: #1a1a1a;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    border-bottom: 1px solid #6f5b3e;
+}
+
+nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
+
+nav a:hover {
+    color: #d6b36a;
+}
+
+nav form {
+    margin: 0;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: #f5f5f5;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.05rem;
+    padding: 0;
+}
+
+nav button:hover {
+    color: #d6b36a;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: 2rem auto;
+}
+
+h1,
+h2,
+h3 {
+    color: #ffffff;
+}
+
+a {
+    color: #d6b36a;
+}
+
+a:hover {
+    color: #f0d394;
+}
+
+/* Wiki entry list */
+
+.entry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.wiki-card {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 1.5rem;
+}
+
+.wiki-card:hover {
+    border-color: #6f5b3e;
+}
+
+.wiki-card h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.wiki-card h2 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.wiki-card h2 a:hover {
+    color: #d6b36a;
+}
+
+.category {
+    color: #d6b36a;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08rem;
+}
+
+.entry-content {
+    line-height: 1.6;
+    color: #dddddd;
+}
+
+.entry-meta {
+    margin-top: 1.5rem;
+    color: #999999;
+    font-size: 0.8rem;
+}
+
+.entry-meta p {
+    margin: 0.25rem 0;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-weight: bold;
 }
