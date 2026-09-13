@@ -1,0 +1,1 @@
+web: gunicorn expedition_33_wiki.wsgi
