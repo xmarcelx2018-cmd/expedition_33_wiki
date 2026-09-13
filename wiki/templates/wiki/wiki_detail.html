@@ -2,23 +2,42 @@
 
 {% block content %}
 
-<div class="container">
-    <h1>{{ wiki_entry.title }}</h1>
+<div class="container wiki-detail">
 
-    <p><strong>Category:</strong> {{ wiki_entry.get_category_display }}</p>
+    <article class="detail-card">
 
-    <p><strong>Author:</strong> {{ wiki_entry.author }}</p>
+        <div class="detail-header">
+            <h1>{{ wiki_entry.title }}</h1>
 
-    <div>
-        {{ wiki_entry.content }}
-    </div>
-
-    {% if user == wiki_entry.author %}
-        <div>
-            <a href="{% url 'wiki_edit' wiki_entry.pk %}">Edit</a>
-            <a href="{% url 'wiki_delete' wiki_entry.pk %}">Delete</a>
+            <p class="category">
+                {{ wiki_entry.get_category_display }}
+            </p>
         </div>
-    {% endif %}
+
+        <div class="detail-meta">
+            <p><strong>Author:</strong> {{ wiki_entry.author }}</p>
+            <p><strong>Created:</strong> {{ wiki_entry.created_on|date:"d M Y" }}</p>
+            <p><strong>Updated:</strong> {{ wiki_entry.updated_on|date:"d M Y" }}</p>
+        </div>
+
+        <div class="detail-content">
+            {{ wiki_entry.content|linebreaks }}
+        </div>
+
+        {% if user == wiki_entry.author %}
+            <div class="detail-actions">
+                <a class="btn-edit" href="{% url 'wiki_edit' wiki_entry.pk %}">
+                    Edit
+                </a>
+
+                <a class="btn-delete" href="{% url 'wiki_delete' wiki_entry.pk %}">
+                    Delete
+                </a>
+            </div>
+        {% endif %}
+
+    </article>
+
 </div>
 
 {% endblock %}
