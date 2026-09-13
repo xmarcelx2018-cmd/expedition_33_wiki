@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -51,6 +52,7 @@ class WikiCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        messages.success(self.request, "Wiki entry created successfully!")
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -68,8 +70,13 @@ class WikiUpdate(LoginRequiredMixin, UpdateView):
     def get_queryset(self):
         return WikiEntry.objects.filter(author=self.request.user)
 
+    def form_valid(self, form):
+        messages.success(self.request, "Wiki entry updated successfully!")
+        return super().form_valid(form)
+
     def get_success_url(self):
         return f'/wiki/{self.object.pk}/'
+
 
 class WikiDelete(LoginRequiredMixin, DeleteView):
     """
@@ -81,6 +88,10 @@ class WikiDelete(LoginRequiredMixin, DeleteView):
 
     def get_queryset(self):
         return WikiEntry.objects.filter(author=self.request.user)
+
+    def form_valid(self, form):
+        messages.success(self.request, "Wiki entry deleted successfully!")
+        return super().form_valid(form)
 
     def get_success_url(self):
         category = self.object.category

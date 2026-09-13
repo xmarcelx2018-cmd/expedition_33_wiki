@@ -25,7 +25,15 @@
         <a href="{% url 'login' %}">LOGIN</a>
     {% endif %}
 </nav>
-
+{% if messages %}
+    <div class="container">
+        {% for message in messages %}
+            <div>
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
     {% block content %}
     {% endblock %}
 
