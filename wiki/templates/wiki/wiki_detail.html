@@ -12,6 +12,13 @@
     <div>
         {{ wiki_entry.content }}
     </div>
+
+    {% if user == wiki_entry.author %}
+        <div>
+            <a href="{% url 'wiki_edit' wiki_entry.pk %}">Edit</a>
+            <a href="{% url 'wiki_delete' wiki_entry.pk %}">Delete</a>
+        </div>
+    {% endif %}
 </div>
 
 {% endblock %}

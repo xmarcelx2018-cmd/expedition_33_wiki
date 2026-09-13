@@ -83,4 +83,13 @@ class WikiDelete(LoginRequiredMixin, DeleteView):
         return WikiEntry.objects.filter(author=self.request.user)
 
     def get_success_url(self):
+        category = self.object.category
+
+        if category == 'character':
+            return '/wiki/characters/'
+        elif category == 'weapon':
+            return '/wiki/weapons/'
+        elif category == 'location':
+            return '/wiki/locations/'
+
         return '/wiki/characters/'
