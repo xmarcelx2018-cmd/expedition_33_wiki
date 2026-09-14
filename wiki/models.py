@@ -17,6 +17,7 @@ class WikiEntry(models.Model):
     related_name='wiki_entries',
 )
     content = models.TextField()
+    image_url = models.URLField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 

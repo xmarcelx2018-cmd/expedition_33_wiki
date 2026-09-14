@@ -14,6 +14,14 @@
             </p>
         </div>
 
+        {% if wiki_entry.image_url %}
+            <img
+                src="{{ wiki_entry.image_url }}"
+                alt="{{ wiki_entry.title }}"
+                class="detail-image"
+            >
+        {% endif %}
+
         <div class="detail-meta">
             <p><strong>Author:</strong> {{ wiki_entry.author }}</p>
             <p><strong>Created:</strong> {{ wiki_entry.created_on|date:"d M Y" }}</p>

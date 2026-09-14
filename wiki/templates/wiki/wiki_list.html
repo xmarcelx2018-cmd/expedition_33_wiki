@@ -10,6 +10,14 @@
         {% for entry in wiki_entries %}
             <article class="wiki-card">
 
+                {% if entry.image_url %}
+                    <img
+                        src="{{ entry.image_url }}"
+                        alt="{{ entry.title }}"
+                        class="wiki-card-image"
+                    >
+                {% endif %}
+
                 <h2>
                     <a href="{% url 'wiki_detail' entry.pk %}">
                         {{ entry.title }}
