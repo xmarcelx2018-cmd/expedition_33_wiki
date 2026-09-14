@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -14,9 +15,9 @@
             </p>
         </div>
 
-        {% if wiki_entry.image_url %}
+        {% if wiki_entry.image %}
             <img
-                src="{{ wiki_entry.image_url }}"
+                src="{% static wiki_entry.image %}"
                 alt="{{ wiki_entry.title }}"
                 class="detail-image"
             >

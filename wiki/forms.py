@@ -6,7 +6,7 @@ class WikiEntryForm(forms.ModelForm):
 
     class Meta:
         model = WikiEntry
-        fields = ['title', 'category', 'content', 'image_url']
+        fields = ['title', 'category', 'content', 'image']
 
     def clean_title(self):
         title = self.cleaned_data['title'].strip()
