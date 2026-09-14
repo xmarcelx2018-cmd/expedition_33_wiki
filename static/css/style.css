@@ -265,3 +265,46 @@ a:hover {
 .form-submit:hover {
     background-color: #f0d394;
 }
+
+/* Home page */
+
+.home-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 30px;
+}
+
+.home-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.home-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.home-intro {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+.home-about {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.home-about h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.home-about p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<main class="home-page">
+
+    <section class="home-hero">
+        <h1>Clair Obscur: Expedition 33</h1>
+
+        <p class="home-intro">
+            Welcome to the Expedition 33 Wiki, a fan-made guide to the
+            characters, weapons and locations found throughout
+            Clair Obscur: Expedition 33.
+        </p>
+    </section>
+
+    <section class="home-image">
+    <img src="{% static 'images/expedition-33.jpg' %}"
+         alt="Clair Obscur: Expedition 33">
+</section>
+
+    <section class="home-about">
+        <h2>About the Game</h2>
+
+        <p>
+            Clair Obscur: Expedition 33 is a turn-based role-playing game
+            developed by Sandfall Interactive. Set in a dark fantasy world
+            inspired by Belle Époque France, the game follows the members
+            of Expedition 33 on a desperate mission to destroy the Paintress.
+        </p>
+
+        <p>
+            Each year, the Paintress awakens and paints a number upon her
+            monolith. Everyone of that age then disappears in an event known
+            as the Gommage. With the number falling year after year, the
+            members of Expedition 33 set out to end the cycle before their
+            own time runs out.
+        </p>
+
+        <p>
+            Throughout their journey, the expedition encounters dangerous
+            enemies, mysterious locations and powerful weapons while
+            uncovering the secrets behind the Paintress and their world.
+        </p>
+    </section>
+
+</main>
+
+{% endblock %}

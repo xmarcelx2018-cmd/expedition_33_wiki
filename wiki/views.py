@@ -104,3 +104,6 @@ class WikiDelete(LoginRequiredMixin, DeleteView):
             return '/wiki/locations/'
 
         return '/wiki/characters/'
+
+def home(request):
+        return render(request, "wiki/home.html")
