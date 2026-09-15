@@ -40,6 +40,19 @@ class WikiList(ListView):
     def get_queryset(self):
         return WikiEntry.objects.filter(category=self.category)
 
+class MyEntries(LoginRequiredMixin, ListView):
+    """
+    Display Wiki entries created by the logged-in user.
+    """
+    model = WikiEntry
+    template_name = 'wiki/my_entries.html'
+    context_object_name = 'wiki_entries'
+
+    def get_queryset(self):
+        return WikiEntry.objects.filter(
+            author=self.request.user
+        ).order_by('-created_on')
+
 
 class WikiDetail(DetailView):
     """

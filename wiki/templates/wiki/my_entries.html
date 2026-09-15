@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container wiki-list">
+
+    <h1 class="wiki-page-title">
+        My Entries
+    </h1>
+
+    <div class="my-entries-list">
+
+        {% for entry in wiki_entries %}
+
+            <article class="my-entry">
+
+                <div class="my-entry-info">
+                    <h2>
+                        <a href="{% url 'wiki_detail' entry.pk %}">
+                            {{ entry.title }}
+                        </a>
+                    </h2>
+
+                    <p class="category">
+                        {{ entry.get_category_display }}
+                    </p>
+
+                    <p>
+                        {{ entry.content|truncatewords:25 }}
+                    </p>
+                </div>
+
+                <div class="my-entry-actions">
+                    <a href="{% url 'wiki_detail' entry.pk %}">
+                        View
+                    </a>
+
+                    <a href="{% url 'wiki_edit' entry.pk %}">
+                        Edit
+                    </a>
+
+                    <a href="{% url 'wiki_delete' entry.pk %}">
+                        Delete
+                    </a>
+                </div>
+
+            </article>
+
+        {% empty %}
+
+            <p class="no-entries">
+                You haven't created any wiki entries yet.
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
