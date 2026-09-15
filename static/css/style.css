@@ -1061,3 +1061,37 @@ a:hover {
         letter-spacing: 0.18rem;
     }
 }
+
+/* Footer */
+
+.site-footer {
+    margin-top: 4rem;
+    padding: 1.5rem 2rem;
+    background-color: #1a1a1a;
+    border-top: 1px solid #6f5b3e;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-content > p {
+    margin: 0 0 0.4rem;
+    color: #aaa69e;
+    font-size: 0.85rem;
+}
+
+.footer-copyright {
+    margin-bottom: 0.5rem !important;
+    color: #d6b36a !important;
+    font-family: "Times New Roman", serif;
+    font-size: 0.9rem !important;
+}
+
+.footer-disclaimer {
+    margin-bottom: 0 !important;
+    color: #77736c !important;
+    font-size: 0.72rem !important;
+}
