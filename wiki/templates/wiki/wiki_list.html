@@ -43,14 +43,14 @@
                 </div>
 
                 <div class="weapon-table-description">
-    <div class="weapon-preview">
-        {{ entry.content|truncatewords:30|linebreaks }}
-    </div>
+                    <div class="weapon-preview">
+                        {{ entry.content|truncatewords:30|linebreaks }}
+                    </div>
 
-    <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
-        Read more
-    </a>
-</div>
+                    <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
+                        Read more
+                    </a>
+                </div>
 
             </article>
 
@@ -61,6 +61,54 @@
         {% endfor %}
 
     </div>
+
+
+{% elif view.category == "location" %}
+
+    <div class="location-list">
+
+        {% for entry in wiki_entries %}
+
+            <article class="location-row">
+
+                <div class="location-image">
+                    {% if entry.image %}
+                        <a href="{% url 'wiki_detail' entry.pk %}">
+                            <img
+                                src="{% static entry.image %}"
+                                alt="{{ entry.title }}"
+                            >
+                        </a>
+                    {% endif %}
+                </div>
+
+                <div class="location-content">
+                    <h2>
+                        <a href="{% url 'wiki_detail' entry.pk %}">
+                            {{ entry.title }}
+                        </a>
+                    </h2>
+
+                    <p>
+                        {{ entry.content|truncatewords:45 }}
+                    </p>
+
+                    <a class="location-link" href="{% url 'wiki_detail' entry.pk %}">
+                        Explore Location →
+                    </a>
+
+                </div>
+
+            </article>
+
+        {% empty %}
+
+            <p>No locations available.</p>
+
+        {% endfor %}
+
+    </div>
+
 
 {% else %}
 
