@@ -32,13 +32,7 @@
                 <p class="entry-content">
                     {{ entry.content|truncatewords:30 }}
                 </p>
-
-                <div class="entry-meta">
-                    <p>Created: {{ entry.created_on|date:"d M Y" }}</p>
-                    <p>Updated: {{ entry.updated_on|date:"d M Y" }}</p>
-                </div>
-
-                <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
+           <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
                     Read more
                 </a>
 

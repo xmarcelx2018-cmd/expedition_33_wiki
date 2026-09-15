@@ -309,13 +309,22 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.wiki-card-image {
+.wiki-card img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
+    height: 340px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
     border-radius: 4px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Weapon card images */
+.weapon-image {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .detail-image {
