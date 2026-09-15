@@ -5,18 +5,23 @@
 
 <div class="container wiki-list">
 
-    <h1>{{ view.category|title }}s</h1>
+    <h1 class="wiki-page-title {{ view.category }}-page-title">
+    {{ view.category|title }}s
+</h1>
 
     <div class="entry-grid">
         {% for entry in wiki_entries %}
-            <article class="wiki-card">
+
+            <article class="wiki-card {{ entry.category }}-card">
 
                 {% if entry.image %}
-                    <img
-                        src="{% static entry.image %}"
-                        alt="{{ entry.title }}"
-                        class="wiki-card-image"
-                    >
+                    <a href="{% url 'wiki_detail' entry.pk %}" class="card-image-link">
+                        <img
+                            src="{% static entry.image %}"
+                            alt="{{ entry.title }}"
+                            class="wiki-card-image"
+                        >
+                    </a>
                 {% endif %}
 
                 <h2>
@@ -32,13 +37,17 @@
                 <p class="entry-content">
                     {{ entry.content|truncatewords:30 }}
                 </p>
-           <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
+
+                <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
                     Read more
                 </a>
 
             </article>
+
         {% empty %}
+
             <p>No wiki entries available.</p>
+
         {% endfor %}
     </div>
 

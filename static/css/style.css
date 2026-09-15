@@ -62,7 +62,10 @@ a:hover {
     color: #f0d394;
 }
 
-/* Wiki entry list */
+
+/* =========================
+   Wiki Entry List
+   ========================= */
 
 .entry-grid {
     display: grid;
@@ -126,7 +129,10 @@ a:hover {
     font-weight: bold;
 }
 
-/* Wiki detail page */
+
+/* =========================
+   Wiki Detail Page
+   ========================= */
 
 .detail-card {
     background-color: #1a1a1a;
@@ -195,7 +201,10 @@ a:hover {
     color: #ffffff;
 }
 
-/* Wiki forms */
+
+/* =========================
+   Wiki Forms
+   ========================= */
 
 .form-card {
     max-width: 700px;
@@ -266,7 +275,10 @@ a:hover {
     background-color: #f0d394;
 }
 
-/* Home page */
+
+/* =========================
+   Home Page
+   ========================= */
 
 .home-page {
     max-width: 1100px;
@@ -309,6 +321,11 @@ a:hover {
     margin-bottom: 20px;
 }
 
+
+/* =========================
+   Wiki Images
+   ========================= */
+
 .wiki-card img {
     width: 100%;
     height: 340px;
@@ -319,7 +336,9 @@ a:hover {
     margin-bottom: 1.25rem;
 }
 
-/* Weapon card images */
+
+/* Weapon Card Images */
+
 .weapon-image {
     width: 100%;
     height: 340px;
@@ -327,11 +346,311 @@ a:hover {
     object-position: center;
 }
 
+
+/* Detail Images */
+
 .detail-image {
     display: block;
     width: 100%;
-    max-height: 500px;
-    object-fit: cover;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
     border-radius: 4px;
     margin-bottom: 1.5rem;
+}
+
+
+/* =========================
+   Character Cards
+   ========================= */
+
+.character-card {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1c1a17 0%,
+            #161513 55%,
+            #101010 100%
+        );
+
+    border: 1px solid #75613f;
+    border-radius: 3px;
+    padding: 1.25rem;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        inset 0 0 25px rgba(214, 179, 106, 0.03);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Decorative Gold Line */
+
+.character-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d6b36a,
+        transparent
+    );
+
+    opacity: 0.9;
+}
+
+
+/* Character Portrait */
+
+.character-card .wiki-card-image {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+
+    border: 1px solid #4d4435;
+    border-radius: 2px;
+
+    margin-bottom: 0;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+/* Character Name */
+
+.character-card h2 {
+    position: relative;
+
+    margin-top: 1.7rem;
+    margin-bottom: 0.45rem;
+
+    padding-top: 1.1rem;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+
+/* Diamond Ornament */
+
+.character-card h2::before {
+    content: "◇";
+
+    position: absolute;
+
+    top: -0.75rem;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #d6b36a;
+    font-size: 1rem;
+}
+
+
+/* Character Name Link */
+
+.character-card h2 a {
+    color: #f4f0e7;
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+
+/* Character Category */
+
+.character-card .category {
+    margin-top: 0;
+
+    color: #c7a765;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 0.72rem;
+    font-weight: bold;
+
+    letter-spacing: 0.18rem;
+}
+
+
+/* Character Description */
+
+.character-card .entry-content {
+    margin-top: 1rem;
+    padding-top: 1rem;
+
+    border-top: 1px solid rgba(214, 179, 106, 0.2);
+
+    color: #cbc8c1;
+
+    line-height: 1.7;
+}
+
+
+/* Character Read More */
+
+.character-card .read-more {
+    display: inline-block;
+
+    margin-top: auto;
+    padding-top: 1rem;
+
+    color: #d6b36a;
+
+    font-size: 0.82rem;
+    font-weight: bold;
+
+    letter-spacing: 0.08rem;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition:
+        color 0.25s ease,
+        letter-spacing 0.25s ease;
+}
+
+
+/* Arrow After Read More */
+
+.character-card .read-more::after {
+    content: " →";
+}
+
+
+/* =========================
+   Character Card Hover
+   ========================= */
+
+.character-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #b89758;
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.55),
+        0 0 20px rgba(214, 179, 106, 0.1);
+}
+
+.character-card:hover .wiki-card-image {
+    transform: scale(1.015);
+    filter: brightness(1.05);
+}
+
+.character-card:hover h2 a {
+    color: #d6b36a;
+}
+
+.character-card .read-more:hover {
+    color: #f0d394;
+    letter-spacing: 0.12rem;
+}
+
+
+/* =========================
+   Clickable Card Images
+   ========================= */
+
+.card-image-link {
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.card-image-link .wiki-card-image {
+    cursor: pointer;
+}
+
+/* =========================
+   Character Page Title
+   ========================= */
+
+.character-page-title {
+    position: relative;
+
+    width: fit-content;
+    margin: 3rem auto 3.5rem;
+
+    padding: 0 4rem 1rem;
+
+    color: #f4f0e7;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+/* Small gold ornament */
+
+.character-page-title::before {
+    content: "◇";
+
+    position: absolute;
+    left: 50%;
+    bottom: -0.8rem;
+
+    transform: translateX(-50%);
+
+    color: #d6b36a;
+
+    font-size: 1rem;
+
+    background-color: #111111;
+
+    padding: 0 0.8rem;
+
+    z-index: 1;
+}
+
+
+/* Gold line underneath */
+
+.character-page-title::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -0.3rem;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #6f5b3e 20%,
+        #d6b36a 50%,
+        #6f5b3e 80%,
+        transparent
+    );
 }
