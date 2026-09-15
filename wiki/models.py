@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class WikiEntry(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=60)
     category = models.CharField(
     max_length=20,
     choices=[
@@ -16,7 +16,7 @@ class WikiEntry(models.Model):
     on_delete=models.CASCADE,
     related_name='wiki_entries',
 )
-    content = models.TextField()
+    content = models.TextField(max_length=2000)
     image = models.CharField(max_length=255, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
