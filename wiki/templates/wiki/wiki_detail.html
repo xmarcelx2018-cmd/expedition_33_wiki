@@ -45,6 +45,11 @@
                 <a href="{% url 'characters' %}" class="back-button">
                     ← Back to Characters
                 </a>
+
+            {% elif wiki_entry.category == "weapon" %}
+                <a href="{% url 'weapons' %}" class="back-button">
+                    ← Back to Weapons
+                </a>
             {% endif %}
 
         </div>
