@@ -7,6 +7,14 @@ class WikiEntryForm(forms.ModelForm):
     class Meta:
         model = WikiEntry
         fields = ['title', 'category', 'content', 'image']
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'id': 'wiki-title',
+            }),
+            'content': forms.Textarea(attrs={
+                'id': 'wiki-content',
+            }),
+        }
 
     def clean_title(self):
         title = self.cleaned_data['title'].strip()
