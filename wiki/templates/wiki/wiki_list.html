@@ -6,8 +6,8 @@
 <div class="container wiki-list">
 
     <h1 class="wiki-page-title {{ view.category }}-page-title">
-    {{ view.category|title }}s
-</h1>
+        {{ view.category|title }}s
+    </h1>
 
     <div class="entry-grid">
         {% for entry in wiki_entries %}
@@ -30,9 +30,11 @@
                     </a>
                 </h2>
 
-                <p class="category">
-                    {{ entry.get_category_display }}
-                </p>
+               {% if entry.category != "character" %}
+    <p class="category">
+        {{ entry.get_category_display }}
+    </p>
+{% endif %}
 
                 <p class="entry-content">
                     {{ entry.content|truncatewords:30 }}
@@ -50,6 +52,142 @@
 
         {% endfor %}
     </div>
+
+
+    {% if view.category == "character" %}
+
+        <section class="combat-styles">
+
+            <div class="combat-styles-header">
+                <h2>Combat Styles</h2>
+
+                <p>
+                    Each member of Expedition 33 approaches combat differently,
+                    with unique mechanics that encourage different strategies,
+                    combinations and playstyles in battle.
+                </p>
+            </div>
+
+            <div class="combat-timeline">
+
+                <div class="combat-style">
+                    <div class="combat-marker">◇</div>
+
+                    <div class="combat-style-content">
+                        <h3>Gustave</h3>
+                        <span>Overcharge</span>
+
+                        <p>
+                            Gustave builds Charges for his Overcharge ability
+                            by using his other skills during battle. Once enough
+                            Charges have been accumulated, Overcharge can be
+                            unleashed to deal heavy damage and reward careful
+                            preparation throughout the fight.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="combat-style">
+                    <div class="combat-marker">◇</div>
+
+                    <div class="combat-style-content">
+                        <h3>Maelle</h3>
+                        <span>Stances</span>
+
+                        <p>
+                            Maelle moves between Offensive, Defensive and
+                            Virtuose Stances as she uses different abilities.
+                            Each stance changes the amount of damage she deals
+                            and receives, making stance management an important
+                            part of maximising her effectiveness in combat.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="combat-style">
+                    <div class="combat-marker">◇</div>
+
+                    <div class="combat-style-content">
+                        <h3>Lune</h3>
+                        <span>Stains</span>
+
+                        <p>
+                            Lune generates elemental Stains while using her
+                            abilities and can consume those Stains when casting
+                            other skills. Managing different combinations of
+                            Stains allows her to strengthen her abilities and
+                            makes planning the order of her attacks important.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="combat-style">
+                    <div class="combat-marker">◇</div>
+
+                    <div class="combat-style-content">
+                        <h3>Sciel</h3>
+                        <span>Foretell</span>
+
+                        <p>
+                            Sciel applies Foretell stacks to enemies before
+                            consuming them with certain abilities for additional
+                            effects. Her Sun and Moon skills also interact with
+                            her Twilight state, rewarding players who carefully
+                            build and consume Foretell during battle.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="combat-style">
+                    <div class="combat-marker">◇</div>
+
+                    <div class="combat-style-content">
+                        <h3>Verso</h3>
+                        <span>Perfection</span>
+
+                        <p>
+                            Verso's combat revolves around building his
+                            Perfection Rank, which progresses from lower ranks
+                            towards the powerful Rank S. Avoiding enemy attacks
+                            and performing well in combat allows him to maintain
+                            his momentum and increase the effectiveness of many
+                            of his abilities.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="combat-style">
+                    <div class="combat-marker">◇</div>
+
+                    <div class="combat-style-content">
+                        <h3>Monoco</h3>
+                        <span>Bestial Wheel</span>
+
+                        <p>
+                            Monoco can learn abilities from defeated Nevrons
+                            and use them as his own skills in battle. These
+                            abilities interact with his Bestial Wheel, which
+                            rotates between different Masks and provides
+                            bonuses depending on the active Mask.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="combat-timeline-end">
+                    <span>33</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    {% endif %}
 
 </div>
 
