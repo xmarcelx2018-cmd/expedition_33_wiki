@@ -11,11 +11,15 @@
             {% csrf_token %}
             {{ form.as_p }}
 
-            <button type="submit" class="form-submit">
-                Save Changes
-            </button>
-        </form>
-    </div>
+            <div class="form-actions">
+    <button type="submit" class="form-submit">
+        Save Changes
+    </button>
+
+    <a href="{% url 'wiki_detail' object.pk %}" class="back-button">
+        ← Back to Entry
+    </a>
+</div>
 
 </div>
 

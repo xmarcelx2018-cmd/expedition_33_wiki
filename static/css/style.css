@@ -13,6 +13,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.site-main {
+    flex: 1;
+    width: 100%;
+}
+
 /* Navbar */
 
 nav {
@@ -305,6 +310,13 @@ a:hover {
 .form-card h1 {
     margin-top: 0;
     margin-bottom: 2rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 }
 
 .wiki-form p {

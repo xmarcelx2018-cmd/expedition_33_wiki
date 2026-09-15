@@ -12,64 +12,72 @@
 <body>
 
     <nav>
-    <a href="{% url 'home' %}" class="nav-logo">
-        EXPEDITION <span>33</span>
-    </a>
+        <a href="{% url 'home' %}" class="nav-logo">
+            EXPEDITION <span>33</span>
+        </a>
 
-    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-    <div class="nav-links">
-        <a href="{% url 'home' %}">HOME</a>
-        <a href="{% url 'characters' %}">CHARACTERS</a>
-        <a href="{% url 'weapons' %}">WEAPONS</a>
-        <a href="{% url 'locations' %}">LOCATIONS</a>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="{% url 'characters' %}">CHARACTERS</a>
+            <a href="{% url 'weapons' %}">WEAPONS</a>
+            <a href="{% url 'locations' %}">LOCATIONS</a>
 
-        {% if user.is_authenticated %}
-            <a href="{% url 'wiki_create' %}">ADD ENTRY</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'wiki_create' %}">ADD ENTRY</a>
 
-            <form method="POST" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button type="submit">LOGOUT</button>
-            </form>
-        {% else %}
-            <a href="{% url 'register' %}">REGISTER</a>
-            <a href="{% url 'login' %}">LOGIN</a>
-        {% endif %}
-    </div>
-</nav>
-{% if messages %}
-    <div class="container">
-        {% for message in messages %}
-            <div>
-                {{ message }}
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">LOGOUT</button>
+                </form>
+            {% else %}
+                <a href="{% url 'register' %}">REGISTER</a>
+                <a href="{% url 'login' %}">LOGIN</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <main class="site-main">
+
+        {% if messages %}
+            <div class="container">
+                {% for message in messages %}
+                    <div>
+                        {{ message }}
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
-{% endif %}
-    {% block content %}
-    {% endblock %}
+        {% endif %}
 
-   <footer class="site-footer">
-    <div class="footer-content">
+        {% block content %}
+        {% endblock %}
 
-        <p class="footer-copyright">
-            © 2026 Made by Marcel. All rights reserved.
-        </p>
+    </main>
 
-        <p>
-            A wiki dedicated to Clair Obscur: Expedition 33.
-        </p>
+    <footer class="site-footer">
+        <div class="footer-content">
 
-        <p class="footer-disclaimer">
-            This is a fan-made project and is not affiliated with Sandfall Interactive.
-        </p>
+            <p class="footer-copyright">
+                © 2026 Made by Marcel. All rights reserved.
+            </p>
 
-    </div>
-</footer>
-<script src="{% static 'js/nav.js' %}"></script>
+            <p>
+                A wiki dedicated to Clair Obscur: Expedition 33.
+            </p>
+
+            <p class="footer-disclaimer">
+                This is a fan-made project and is not affiliated with Sandfall Interactive.
+            </p>
+
+        </div>
+    </footer>
+
+    <script src="{% static 'js/nav.js' %}"></script>
+
 </body>
 </html>
