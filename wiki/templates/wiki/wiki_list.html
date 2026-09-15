@@ -43,14 +43,14 @@
                 </div>
 
                 <div class="weapon-table-description">
-                    <p>
-                        {{ entry.content|truncatewords:65 }}
-                    </p>
+    <div class="weapon-preview">
+        {{ entry.content|truncatewords:30|linebreaks }}
+    </div>
 
-                    <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
-                        Read more
-                    </a>
-                </div>
+    <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
+        Read more
+    </a>
+</div>
 
             </article>
 
