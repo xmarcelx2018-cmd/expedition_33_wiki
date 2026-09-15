@@ -27,6 +27,24 @@ nav {
     border-bottom: 1px solid #6f5b3e;
 }
 
+.nav-toggle {
+    display: none;
+    width: 32px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 6px 0;
+    background-color: #d6b36a;
+    transition: 0.2s ease;
+}
+
 .nav-logo {
     color: #d6b36a;
     font-family: Georgia, "Times New Roman", serif;
@@ -1107,7 +1125,75 @@ a:hover {
     font-size: 0.72rem !important;
 }
 
-/* Responsive */
+/* Media Queries */
+
+@media (max-width: 800px) {
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 0;
+        opacity: 0;
+        transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease,
+            padding 0.4s ease;
+    }
+
+    .nav-links.active {
+        max-height: 500px;
+        padding: 1.5rem 0 0.8rem;
+        opacity: 1;
+    }
+
+    .nav-links a,
+    .nav-links form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a,
+    .nav-links button {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid #2d2923;
+    }
+
+    .nav-links a:hover,
+    .nav-links button:hover {
+        background-color: #211f1b;
+        color: #d6b36a;
+    }
+
+    .nav-links a::after,
+    .nav-links button::after {
+        display: none;
+    }
+}
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
 
 @media (max-width: 700px) {
     .home-page {
