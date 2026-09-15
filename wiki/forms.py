@@ -24,6 +24,11 @@ class WikiEntryForm(forms.ModelForm):
                 "Title must be at least 3 characters long."
             )
 
+        if len(title) > 50:
+            raise forms.ValidationError(
+                "Title cannot be more than 50 characters long."
+            )
+
         return title
 
     def clean_content(self):
@@ -32,6 +37,11 @@ class WikiEntryForm(forms.ModelForm):
         if len(content) < 10:
             raise forms.ValidationError(
                 "Content must be at least 10 characters long."
+            )
+
+        if len(content) > 2000:
+            raise forms.ValidationError(
+                "Content cannot be more than 2000 characters long."
             )
 
         return content
