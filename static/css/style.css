@@ -549,7 +549,6 @@ a:hover {
     padding: 8px;
     border: 1px solid #75613f;
     background-color: #161513;
-
     clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px);
 }
 
@@ -698,9 +697,7 @@ a:hover {
 .home-explore-item:hover {
     transform: translateX(6px);
     border-color: #b89758;
-
     background: linear-gradient(135deg, #211e19 0%, #181613 55%, #111111 100%);
-
     color: #f4f0e7;
 }
 
@@ -719,15 +716,11 @@ a:hover {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-
     background: linear-gradient(145deg, #1c1a17 0%, #161513 55%, #101010 100%);
-
     border: 1px solid #75613f;
     border-radius: 3px;
     padding: 1.25rem;
-
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 0 25px rgba(214, 179, 106, 0.03);
-
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -740,9 +733,7 @@ a:hover {
     left: 15%;
     width: 70%;
     height: 1px;
-
     background: linear-gradient(90deg, transparent, #d6b36a, transparent);
-
     opacity: 0.9;
 }
 
@@ -757,7 +748,6 @@ a:hover {
     border: 1px solid #4d4435;
     border-radius: 2px;
     margin-bottom: 0;
-
     transition: transform 0.35s ease, filter 0.35s ease;
 }
 
@@ -828,7 +818,6 @@ a:hover {
     letter-spacing: 0.08rem;
     text-decoration: none;
     text-transform: uppercase;
-
     transition: color 0.25s ease, letter-spacing 0.25s ease;
 }
 
@@ -843,7 +832,6 @@ a:hover {
 .character-card:hover {
     transform: translateY(-6px);
     border-color: #b89758;
-
     box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55), 0 0 20px rgba(214, 179, 106, 0.1);
 }
 
@@ -909,7 +897,6 @@ a:hover {
     left: 0;
     width: 100%;
     height: 1px;
-
     background: linear-gradient(90deg, transparent, #6f5b3e 20%, #d6b36a 50%, #6f5b3e 80%, transparent);
 }
 
@@ -995,7 +982,6 @@ a:hover {
     inset: 6px;
     pointer-events: none;
     border: 1px solid rgba(214, 179, 106, 0.08);
-
     clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
 }
 
@@ -1057,7 +1043,6 @@ a:hover {
     min-height: 220px;
     background-color: #161513;
     border: 1px solid #75613f;
-
     clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
 }
 
@@ -1067,7 +1052,6 @@ a:hover {
     display: block;
     object-fit: cover;
     object-position: center;
-
     transition: transform 0.35s ease, filter 0.35s ease;
 }
 
@@ -1075,7 +1059,6 @@ a:hover {
 
 .combat-style:hover {
     transform: translateY(-3px);
-
     background: linear-gradient(135deg, rgba(40, 37, 31, 0.98), rgba(22, 21, 19, 0.98));
 }
 
@@ -1446,7 +1429,6 @@ a:hover {
     color: #f5f5f5;
 }
 
-
 /* Footer */
 
 .site-footer {
@@ -1487,11 +1469,9 @@ a:hover {
     nav {
         flex-wrap: wrap;
     }
-
     .nav-toggle {
         display: block;
     }
-
     .nav-links {
         width: 100%;
         max-height: 0;
@@ -1506,19 +1486,16 @@ a:hover {
             opacity 0.3s ease,
             padding 0.4s ease;
     }
-
     .nav-links.active {
         max-height: 500px;
         padding: 1.5rem 0 0.8rem;
         opacity: 1;
     }
-
     .nav-links a,
     .nav-links form {
         width: 100%;
         text-align: center;
     }
-
     .nav-links a,
     .nav-links button {
         display: block;
@@ -1527,13 +1504,11 @@ a:hover {
         padding: 0.9rem 1rem;
         border-bottom: 1px solid #2d2923;
     }
-
     .nav-links a:hover,
     .nav-links button:hover {
         background-color: #211f1b;
         color: #d6b36a;
     }
-
     .nav-links a::after,
     .nav-links button::after {
         display: none;
@@ -1555,45 +1530,90 @@ a:hover {
     .home-page {
         padding-top: 2.5rem;
     }
-
     .home-hero {
         margin-bottom: 3rem;
     }
-
     .home-hero h1 {
         font-size: 2.5rem;
     }
-
     .home-hero-ornament {
         width: 85%;
     }
-
     .home-image {
         margin-bottom: 4.5rem;
     }
-
     .home-about {
         margin-bottom: 5rem;
     }
-
     .home-section-heading h2 {
         font-size: 1.7rem;
         letter-spacing: 0.14rem;
     }
-
     .home-explore-item {
         grid-template-columns: 1fr 25px;
         gap: 1rem;
         padding: 1.4rem 1.2rem;
     }
-
     .home-explore-content h3 {
         font-size: 1.2rem;
     }
-
     .home-explore-content p {
         font-size: 0.9rem;
     }
+}
+
+/* Weapons */
+@media (max-width: 700px) {
+.weapon-table {
+    border: none;
+}
+
+.weapon-table-header {
+    display: none;
+}
+
+.weapon-row {
+    display: block;
+    margin-bottom: 2rem;
+    border: 1px solid #6f5b3e;
+}
+
+.weapon-table-image {
+    width: 100%;
+    padding: 0;
+}
+
+.weapon-table-image a {
+    display: block;
+}
+
+.weapon-table-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.weapon-table-name {
+    padding: 1.25rem 1.5rem 0.5rem;
+    text-align: center;
+}
+
+.weapon-table-name h2 {
+    margin: 0;
+}
+
+.weapon-table-description {
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.weapon-preview {
+    line-height: 1.7;
+}
+
+.weapon-table-description .read-more {
+    display: inline-block;
+    margin-top: 0.5rem;
 }
 
 @media (max-width: 750px) {
@@ -1601,42 +1621,33 @@ a:hover {
         margin-top: 4rem;
         padding-top: 2rem;
     }
-
     .combat-styles-header {
         margin-bottom: 3rem;
     }
-
     .combat-styles-header h2 {
         font-size: 1.7rem;
         letter-spacing: 0.15rem;
     }
-
     .combat-style-row {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-
     .combat-style {
         width: auto;
         grid-template-columns: 30px 1fr;
         column-gap: 0.8rem;
         padding: 1.4rem 1.2rem;
-
     clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
     }
-
     .combat-style-content h3 {
         font-size: 1.25rem;
     }
-
     .combat-style-content p {
         font-size: 0.9rem;
     }
-
     .combat-marker {
         font-size: 1.2rem;
     }
-
     .combat-style-media {
         min-height: 200px;
         max-height: 320px;
@@ -1652,4 +1663,3 @@ a:hover {
         letter-spacing: 0.18rem;
     }
 }
-

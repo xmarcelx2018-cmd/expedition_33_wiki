@@ -2,44 +2,22 @@
 
 {% block content %}
 
-<div class="container delete-page">
+<div class="container">
+    <h1>Delete Wiki Entry</h1>
 
-    <div class="delete-card">
+    <p>Are you sure you want to delete "{{ wiki_entry.title }}"?</p>
 
-        <h1>Delete Wiki Entry</h1>
+    <form method="post">
+        {% csrf_token %}
 
-        <div class="delete-divider">
-            <span>◇</span>
-        </div>
+        <button type="submit" class="btn btn-danger">
+            Delete Entry
+        </button>
 
-        <p class="delete-message">
-            Are you sure you want to delete
-            <strong>{{ wiki_entry.title }}</strong>?
-        </p>
-
-        <p class="delete-warning">
-            This action cannot be undone.
-        </p>
-
-        <form method="post">
-            {% csrf_token %}
-
-            <div class="delete-actions">
-
-                <button type="submit" class="delete-confirm">
-                    Delete Entry
-                </button>
-
-                <a href="{% url 'wiki_detail' wiki_entry.pk %}" class="back-button">
-                    ← Back to Entry
-                </a>
-
-            </div>
-
-        </form>
-
-    </div>
-
+        <a href="{% url 'wiki_detail' wiki_entry.pk %}" class="btn btn-secondary">
+            Cancel
+        </a>
+    </form>
 </div>
 
 {% endblock %}
