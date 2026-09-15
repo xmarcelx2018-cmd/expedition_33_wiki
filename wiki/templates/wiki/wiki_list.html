@@ -9,7 +9,63 @@
         {{ view.category|title }}s
     </h1>
 
+    {% if view.category == "weapon" %}
+
+    <div class="weapon-table">
+
+        <div class="weapon-table-header">
+            <span>Image</span>
+            <span>Name</span>
+            <span>Description</span>
+        </div>
+
+        {% for entry in wiki_entries %}
+
+            <article class="weapon-row">
+
+                <div class="weapon-table-image">
+                    {% if entry.image %}
+                        <a href="{% url 'wiki_detail' entry.pk %}">
+                            <img
+                                src="{% static entry.image %}"
+                                alt="{{ entry.title }}"
+                            >
+                        </a>
+                    {% endif %}
+                </div>
+
+                <div class="weapon-table-name">
+                    <h2>
+                        <a href="{% url 'wiki_detail' entry.pk %}">
+                            {{ entry.title }}
+                        </a>
+                    </h2>
+                </div>
+
+                <div class="weapon-table-description">
+                    <p>
+                        {{ entry.content|truncatewords:65 }}
+                    </p>
+
+                    <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
+                        Read more
+                    </a>
+                </div>
+
+            </article>
+
+        {% empty %}
+
+            <p>No weapon entries available.</p>
+
+        {% endfor %}
+
+    </div>
+
+{% else %}
+
     <div class="entry-grid">
+
         {% for entry in wiki_entries %}
 
             <article class="wiki-card {{ entry.category }}-card">
@@ -30,11 +86,11 @@
                     </a>
                 </h2>
 
-               {% if entry.category != "character" %}
-    <p class="category">
-        {{ entry.get_category_display }}
-    </p>
-{% endif %}
+                {% if entry.category != "character" %}
+                    <p class="category">
+                        {{ entry.get_category_display }}
+                    </p>
+                {% endif %}
 
                 <p class="entry-content">
                     {{ entry.content|truncatewords:30 }}
@@ -51,7 +107,10 @@
             <p>No wiki entries available.</p>
 
         {% endfor %}
+
     </div>
+
+{% endif %}
 
 
     {% if view.category == "character" %}
