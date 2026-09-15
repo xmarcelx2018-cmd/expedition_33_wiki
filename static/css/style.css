@@ -1090,7 +1090,8 @@ a:hover {
 
 /* Weapon Page Title */
 
-.weapon-page-title {
+.weapon-page-title,
+.location-page-title {
     position: relative;
     margin: 3rem auto 4rem;
     color: #f4f0e7;
@@ -1102,7 +1103,8 @@ a:hover {
     text-transform: uppercase;
 }
 
-.weapon-page-title::after {
+.weapon-page-title::after,
+.location-page-title::after {
     content: "◇";
     display: block;
     width: 260px;
