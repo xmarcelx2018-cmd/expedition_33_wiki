@@ -1,7 +1,13 @@
 /* Global */
+html {
+    min-height: 100%;
+}
 
 body {
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: #111111;
     color: #f5f5f5;
     font-family: Arial, sans-serif;
@@ -1050,7 +1056,7 @@ a:hover {
 /* Footer */
 
 .site-footer {
-    margin-top: 4rem;
+    margin-top: auto;
     padding: 1.5rem 2rem;
     background-color: #1a1a1a;
     border-top: 1px solid #6f5b3e;
