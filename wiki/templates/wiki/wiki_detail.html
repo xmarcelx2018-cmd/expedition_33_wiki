@@ -41,16 +41,21 @@
                 {% endif %}
             </div>
 
-            {% if wiki_entry.category == "character" %}
-                <a href="{% url 'characters' %}" class="back-button">
-                    ← Back to Characters
-                </a>
+           {% if wiki_entry.category == "character" %}
+    <a href="{% url 'characters' %}" class="back-button">
+        ← Back to Characters
+    </a>
 
-            {% elif wiki_entry.category == "weapon" %}
-                <a href="{% url 'weapons' %}" class="back-button">
-                    ← Back to Weapons
-                </a>
-            {% endif %}
+{% elif wiki_entry.category == "weapon" %}
+    <a href="{% url 'weapons' %}" class="back-button">
+        ← Back to Weapons
+    </a>
+
+{% elif wiki_entry.category == "location" %}
+    <a href="{% url 'locations' %}" class="back-button">
+        ← Back to Locations
+    </a>
+{% endif %}
 
         </div>
 
