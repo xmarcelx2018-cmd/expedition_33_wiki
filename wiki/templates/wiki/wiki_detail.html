@@ -23,27 +23,31 @@
             >
         {% endif %}
 
-        <div class="detail-meta">
-            <p><strong>Author:</strong> {{ wiki_entry.author }}</p>
-            <p><strong>Created:</strong> {{ wiki_entry.created_on|date:"d M Y" }}</p>
-            <p><strong>Updated:</strong> {{ wiki_entry.updated_on|date:"d M Y" }}</p>
-        </div>
-
         <div class="detail-content">
             {{ wiki_entry.content|linebreaks }}
         </div>
 
-        {% if user == wiki_entry.author %}
-            <div class="detail-actions">
-                <a class="btn-edit" href="{% url 'wiki_edit' wiki_entry.pk %}">
-                    Edit
-                </a>
+        <div class="detail-actions-row">
 
-                <a class="btn-delete" href="{% url 'wiki_delete' wiki_entry.pk %}">
-                    Delete
-                </a>
+            <div class="detail-actions">
+                {% if user == wiki_entry.author %}
+                    <a class="btn-edit" href="{% url 'wiki_edit' wiki_entry.pk %}">
+                        Edit
+                    </a>
+
+                    <a class="btn-delete" href="{% url 'wiki_delete' wiki_entry.pk %}">
+                        Delete
+                    </a>
+                {% endif %}
             </div>
-        {% endif %}
+
+            {% if wiki_entry.category == "character" %}
+                <a href="{% url 'characters' %}" class="back-button">
+                    ← Back to Characters
+                </a>
+            {% endif %}
+
+        </div>
 
     </article>
 

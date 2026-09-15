@@ -245,6 +245,34 @@ a:hover {
     color: #ffffff;
 }
 
+/* Back Button */
+
+.back-button {
+    display: inline-block;
+    margin-top: 0;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid #6f5b3e;
+    border-radius: 3px;
+    color: #d6b36a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.05rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #d6b36a;
+    color: #111111;
+}
+
+.detail-actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
 /* Wiki Forms */
 
 .form-card {
