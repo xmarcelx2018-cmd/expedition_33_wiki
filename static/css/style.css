@@ -455,6 +455,47 @@ a:hover {
     background-color: #f0d394;
 }
 
+/* Messages */
+
+.message-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1.5rem 1rem 0;
+    box-sizing: border-box;
+}
+
+.site-message {
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.site-message.success {
+    background-color: #18251c;
+    border: 1px solid #4f8a5b;
+    color: #8fd19e;
+}
+
+/* Form Errors */
+
+.register-card .errorlist {
+    margin: 0 0 1rem;
+    padding: 0;
+    color: #e57373;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.5;
+    list-style: none;
+}
+
+.register-card .errorlist li {
+    margin-bottom: 0.4rem;
+}
+
 /* Detail Images */
 
 .detail-image {

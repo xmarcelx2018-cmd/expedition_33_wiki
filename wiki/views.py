@@ -13,11 +13,19 @@ def register(request):
 
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                "Registration successful! You can now log in."
+            )
             return redirect("login")
     else:
         form = UserCreationForm()
 
-    return render(request, "registration/register.html", {"form": form})
+    return render(
+        request,
+        "registration/register.html",
+        {"form": form}
+    )
 
 
 class WikiList(ListView):

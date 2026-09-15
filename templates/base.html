@@ -45,14 +45,14 @@
     <main class="site-main">
 
         {% if messages %}
-            <div class="container">
-                {% for message in messages %}
-                    <div>
-                        {{ message }}
-                    </div>
-                {% endfor %}
+    <div class="message-container">
+        {% for message in messages %}
+            <div class="site-message {{ message.tags }}">
+                {{ message }}
             </div>
-        {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
 
         {% block content %}
         {% endblock %}
