@@ -7,7 +7,7 @@
     <div class="form-card">
         <h1>Add Wiki Entry</h1>
 
-        <form method="post" class="wiki-form">
+        <form method="post" enctype="multipart/form-data" class="wiki-form">
             {% csrf_token %}
             {{ form.as_p }}
 

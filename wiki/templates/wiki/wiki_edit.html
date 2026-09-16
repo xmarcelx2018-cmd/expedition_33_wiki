@@ -7,19 +7,21 @@
     <div class="form-card">
         <h1>Edit Wiki Entry</h1>
 
-        <form method="post" class="wiki-form">
+        <form method="post" enctype="multipart/form-data" class="wiki-form">
             {% csrf_token %}
             {{ form.as_p }}
 
             <div class="form-actions">
-    <button type="submit" class="form-submit">
-        Save Changes
-    </button>
+                <button type="submit" class="form-submit">
+                    Save Changes
+                </button>
 
-    <a href="{% url 'wiki_detail' object.pk %}" class="back-button">
-        ← Back to Entry
-    </a>
-</div>
+                <a href="{% url 'wiki_detail' object.pk %}" class="back-button">
+                    ← Back to Entry
+                </a>
+            </div>
+        </form>
+    </div>
 
 </div>
 
