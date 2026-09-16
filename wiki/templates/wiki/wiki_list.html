@@ -21,12 +21,15 @@
                 <article class="weapon-row">
                     <div class="weapon-table-image">
                         {% if entry.image %}
-                            <a href="{% url 'wiki_detail' entry.pk %}">
-                                <img
-                                    src="{{ entry.image.url }}"
-                                    alt="{{ entry.title }}"
-                                >
-                            </a>
+                            <img
+                                src="{{ entry.image.url }}"
+                                alt="{{ entry.title }}"
+                            >
+                        {% else %}
+                            <img
+                                src="{% static 'images/game/placeholder.png' %}"
+                                alt="No image available"
+                            >
                         {% endif %}
                     </div>
 
@@ -43,7 +46,10 @@
                             {{ entry.content|truncatewords:30|linebreaks }}
                         </div>
 
-                        <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
+                        <a
+                            class="read-more"
+                            href="{% url 'wiki_detail' entry.pk %}"
+                        >
                             Read more
                         </a>
                     </div>
@@ -58,14 +64,19 @@
             {% for entry in wiki_entries %}
                 <article class="location-row">
                     <div class="location-image">
-                        {% if entry.image %}
-                            <a href="{% url 'wiki_detail' entry.pk %}">
+                        <a href="{% url 'wiki_detail' entry.pk %}">
+                            {% if entry.image %}
                                 <img
                                     src="{{ entry.image.url }}"
                                     alt="{{ entry.title }}"
                                 >
-                            </a>
-                        {% endif %}
+                            {% else %}
+                                <img
+                                    src="{% static 'images/game/placeholder.png' %}"
+                                    alt="No image available"
+                                >
+                            {% endif %}
+                        </a>
                     </div>
 
                     <div class="location-content">
@@ -79,7 +90,10 @@
                             {{ entry.content|truncatewords:45 }}
                         </p>
 
-                        <a class="location-link" href="{% url 'wiki_detail' entry.pk %}">
+                        <a
+                            class="location-link"
+                            href="{% url 'wiki_detail' entry.pk %}"
+                        >
                             Explore Location →
                         </a>
                     </div>
@@ -93,15 +107,25 @@
         <div class="entry-grid">
             {% for entry in wiki_entries %}
                 <article class="wiki-card {{ entry.category }}-card">
-                    {% if entry.image %}
-                        <a href="{% url 'wiki_detail' entry.pk %}" class="card-image-link">
+
+                    <a
+                        href="{% url 'wiki_detail' entry.pk %}"
+                        class="card-image-link"
+                    >
+                        {% if entry.image %}
                             <img
                                 src="{{ entry.image.url }}"
                                 alt="{{ entry.title }}"
                                 class="wiki-card-image"
                             >
-                        </a>
-                    {% endif %}
+                        {% else %}
+                            <img
+                                src="{% static 'images/game/placeholder.png' %}"
+                                alt="No image available"
+                                class="wiki-card-image"
+                            >
+                        {% endif %}
+                    </a>
 
                     <h2>
                         <a href="{% url 'wiki_detail' entry.pk %}">
@@ -119,7 +143,10 @@
                         {{ entry.content|truncatewords:30 }}
                     </p>
 
-                    <a class="read-more" href="{% url 'wiki_detail' entry.pk %}">
+                    <a
+                        class="read-more"
+                        href="{% url 'wiki_detail' entry.pk %}"
+                    >
                         Read more
                     </a>
                 </article>
