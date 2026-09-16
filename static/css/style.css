@@ -1624,15 +1624,29 @@ a:hover {
     font-size: 0.72rem !important;
 }
 
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 /* Media Queries */
 
 @media (max-width: 800px) {
     nav {
         flex-wrap: wrap;
     }
+
     .nav-toggle {
         display: block;
     }
+
     .nav-links {
         width: 100%;
         max-height: 0;
@@ -1647,16 +1661,19 @@ a:hover {
             opacity 0.3s ease,
             padding 0.4s ease;
     }
+
     .nav-links.active {
         max-height: 500px;
         padding: 1.5rem 0 0.8rem;
         opacity: 1;
     }
+
     .nav-links a,
     .nav-links form {
         width: 100%;
         text-align: center;
     }
+
     .nav-links a,
     .nav-links button {
         display: block;
@@ -1665,116 +1682,17 @@ a:hover {
         padding: 0.9rem 1rem;
         border-bottom: 1px solid #2d2923;
     }
+
     .nav-links a:hover,
     .nav-links button:hover {
         background-color: #211f1b;
         color: #d6b36a;
     }
+
     .nav-links a::after,
     .nav-links button::after {
         display: none;
     }
-}
-.nav-toggle.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-@media (max-width: 700px) {
-    .home-page {
-        padding-top: 2.5rem;
-    }
-    .home-hero {
-        margin-bottom: 3rem;
-    }
-    .home-hero h1 {
-        font-size: 2.5rem;
-    }
-    .home-hero-ornament {
-        width: 85%;
-    }
-    .home-image {
-        margin-bottom: 4.5rem;
-    }
-    .home-about {
-        margin-bottom: 5rem;
-    }
-    .home-section-heading h2 {
-        font-size: 1.7rem;
-        letter-spacing: 0.14rem;
-    }
-    .home-explore-item {
-        grid-template-columns: 1fr 25px;
-        gap: 1rem;
-        padding: 1.4rem 1.2rem;
-    }
-    .home-explore-content h3 {
-        font-size: 1.2rem;
-    }
-    .home-explore-content p {
-        font-size: 0.9rem;
-    }
-}
-
-/* Weapons */
-@media (max-width: 700px) {
-.weapon-table {
-    border: none;
-}
-
-.weapon-table-header {
-    display: none;
-}
-
-.weapon-row {
-    display: block;
-    margin-bottom: 2rem;
-    border: 1px solid #6f5b3e;
-}
-
-.weapon-table-image {
-    width: 100%;
-    padding: 0;
-}
-
-.weapon-table-image a {
-    display: block;
-}
-
-.weapon-table-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.weapon-table-name {
-    padding: 1.25rem 1.5rem 0.5rem;
-    text-align: center;
-}
-
-.weapon-table-name h2 {
-    margin: 0;
-}
-
-.weapon-table-description {
-    padding: 0.5rem 1.5rem 1.5rem;
-}
-
-.weapon-preview {
-    line-height: 1.7;
-}
-
-.weapon-table-description .read-more {
-    display: inline-block;
-    margin-top: 0.5rem;
 }
 
 @media (max-width: 750px) {
@@ -1782,36 +1700,179 @@ a:hover {
         margin-top: 4rem;
         padding-top: 2rem;
     }
+
     .combat-styles-header {
         margin-bottom: 3rem;
     }
+
     .combat-styles-header h2 {
         font-size: 1.7rem;
         letter-spacing: 0.15rem;
     }
+
     .combat-style-row {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+
     .combat-style {
         width: auto;
         grid-template-columns: 30px 1fr;
         column-gap: 0.8rem;
         padding: 1.4rem 1.2rem;
-    clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+        clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
     }
+
     .combat-style-content h3 {
         font-size: 1.25rem;
     }
+
     .combat-style-content p {
         font-size: 0.9rem;
     }
+
     .combat-marker {
         font-size: 1.2rem;
     }
+
     .combat-style-media {
         min-height: 200px;
         max-height: 320px;
+    }
+}
+
+@media (max-width: 700px) {
+    .home-page {
+        padding-top: 2.5rem;
+    }
+
+    .home-hero {
+        margin-bottom: 3rem;
+    }
+
+    .home-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-hero-ornament {
+        width: 85%;
+    }
+
+    .home-image {
+        margin-bottom: 4.5rem;
+    }
+
+    .home-about {
+        margin-bottom: 5rem;
+    }
+
+    .home-section-heading h2 {
+        font-size: 1.7rem;
+        letter-spacing: 0.14rem;
+    }
+
+    .home-explore-item {
+        grid-template-columns: 1fr 25px;
+        gap: 1rem;
+        padding: 1.4rem 1.2rem;
+    }
+
+    .home-explore-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .home-explore-content p {
+        font-size: 0.9rem;
+    }
+
+    .weapon-table {
+        border: none;
+    }
+
+    .weapon-table-header {
+        display: none;
+    }
+
+    .weapon-row {
+        display: block;
+        margin-bottom: 2rem;
+        border: 1px solid #6f5b3e;
+    }
+
+    .weapon-table-image {
+        width: 100%;
+        padding: 0;
+    }
+
+    .weapon-table-image a {
+        display: block;
+    }
+
+    .weapon-table-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .weapon-table-name {
+        padding: 1.25rem 1.5rem 0.5rem;
+        text-align: center;
+    }
+
+    .weapon-table-name h2 {
+        margin: 0;
+    }
+
+    .weapon-table-description {
+        padding: 0.5rem 1.5rem 1.5rem;
+    }
+
+    .weapon-preview {
+        line-height: 1.7;
+    }
+
+    .weapon-table-description .read-more {
+        display: inline-block;
+        margin-top: 0.5rem;
+    }
+
+    .location-row {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        margin-bottom: 2.5rem;
+    }
+
+    .location-image,
+    .location-row:nth-child(even) .location-image {
+        order: 1;
+        width: 100%;
+        min-height: 0;
+    }
+
+    .location-content,
+    .location-row:nth-child(even) .location-content {
+        order: 2;
+    }
+
+    .location-image a {
+        height: auto;
+    }
+
+    .location-image img {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        object-fit: contain;
+    }
+
+    .location-content {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .location-content h2 {
+        font-size: 1.6rem;
     }
 }
 
@@ -1823,4 +1884,47 @@ a:hover {
         font-size: 2rem;
         letter-spacing: 0.18rem;
     }
+
+    .detail-actions-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .detail-actions {
+        width: 100%;
+    }
+
+    .back-button {
+        align-self: flex-start;
+        white-space: nowrap;
+    }
+
+    /* My Entries */
+.my-entry {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 1.5rem;
 }
+
+.my-entry-info {
+    width: 100%;
+}
+
+.my-entry-info h2 {
+    font-size: 1.4rem;
+}
+
+.my-entry-info > p:last-child {
+    width: 100%;
+    line-height: 1.7;
+}
+
+.my-entry-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+}
+
