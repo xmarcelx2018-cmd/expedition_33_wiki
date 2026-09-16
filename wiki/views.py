@@ -104,17 +104,23 @@ class WikiUpdate(LoginRequiredMixin, UpdateView):
 
 class WikiDelete(LoginRequiredMixin, DeleteView):
     """
-    Allow the author of a Wiki entry to delete it.
+    Allow the author or an administrator to delete a Wiki entry.
     """
     model = WikiEntry
     template_name = 'wiki/wiki_delete.html'
     context_object_name = 'wiki_entry'
 
     def get_queryset(self):
+        if self.request.user.is_staff:
+            return WikiEntry.objects.all()
+
         return WikiEntry.objects.filter(author=self.request.user)
 
     def form_valid(self, form):
-        messages.success(self.request, "Wiki entry deleted successfully!")
+        messages.success(
+            self.request,
+            "Wiki entry deleted successfully!"
+        )
         return super().form_valid(form)
 
     def get_success_url(self):
