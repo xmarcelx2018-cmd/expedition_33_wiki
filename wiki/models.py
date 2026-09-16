@@ -17,7 +17,7 @@ class WikiEntry(models.Model):
         on_delete=models.CASCADE,
         related_name='wiki_entries',
     )
-    content = models.TextField(max_length=2000)
+    content = models.TextField(max_length=3000)
     image = models.ImageField(
         upload_to='wiki_images/',
         blank=True,

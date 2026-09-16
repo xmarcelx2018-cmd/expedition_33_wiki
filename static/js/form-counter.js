@@ -28,4 +28,4 @@ function addCharacterCounter(input, limit) {
 }
 
 addCharacterCounter(titleInput, 50);
-addCharacterCounter(contentInput, 2000);
+addCharacterCounter(contentInput, 3000);

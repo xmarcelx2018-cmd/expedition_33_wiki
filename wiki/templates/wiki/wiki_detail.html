@@ -16,12 +16,12 @@
         </div>
 
         {% if wiki_entry.image %}
-            <img
-                src="{% static wiki_entry.image %}"
-                alt="{{ wiki_entry.title }}"
-                class="detail-image"
-            >
-        {% endif %}
+    <img
+        src="{{ wiki_entry.image.url }}"
+        alt="{{ wiki_entry.title }}"
+        class="detail-image"
+    >
+{% endif %}
 
         <div class="detail-content">
             {{ wiki_entry.content|linebreaks }}

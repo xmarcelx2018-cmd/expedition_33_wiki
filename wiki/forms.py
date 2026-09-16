@@ -14,6 +14,7 @@ class WikiEntryForm(forms.ModelForm):
             'content': forms.Textarea(attrs={
                 'id': 'wiki-content',
             }),
+            'image': forms.FileInput(),
         }
 
     def clean_title(self):
@@ -39,9 +40,9 @@ class WikiEntryForm(forms.ModelForm):
                 "Content must be at least 10 characters long."
             )
 
-        if len(content) > 2000:
+        if len(content) > 3000:
             raise forms.ValidationError(
-                "Content cannot be more than 2000 characters long."
+                "Content cannot be more than 3000 characters long."
             )
 
         return content
