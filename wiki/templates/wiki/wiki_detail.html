@@ -16,12 +16,12 @@
         </div>
 
         {% if wiki_entry.image %}
-    <img
-        src="{{ wiki_entry.image.url }}"
-        alt="{{ wiki_entry.title }}"
-        class="detail-image"
-    >
-{% endif %}
+            <img
+                src="{{ wiki_entry.image.url }}"
+                alt="{{ wiki_entry.title }}"
+                class="detail-image"
+            >
+        {% endif %}
 
         <div class="detail-content">
             {{ wiki_entry.content|linebreaks }}
@@ -30,32 +30,38 @@
         <div class="detail-actions-row">
 
             <div class="detail-actions">
-                {% if user == wiki_entry.author %}
-                    <a class="btn-edit" href="{% url 'wiki_edit' wiki_entry.pk %}">
+                {% if user == wiki_entry.author or user.is_staff %}
+                    <a
+                        class="btn-edit"
+                        href="{% url 'wiki_edit' wiki_entry.pk %}"
+                    >
                         Edit
                     </a>
 
-                    <a class="btn-delete" href="{% url 'wiki_delete' wiki_entry.pk %}">
+                    <a
+                        class="btn-delete"
+                        href="{% url 'wiki_delete' wiki_entry.pk %}"
+                    >
                         Delete
                     </a>
                 {% endif %}
             </div>
 
-           {% if wiki_entry.category == "character" %}
-    <a href="{% url 'characters' %}" class="back-button">
-        ← Back to Characters
-    </a>
+            {% if wiki_entry.category == "character" %}
+                <a href="{% url 'characters' %}" class="back-button">
+                    ← Back to Characters
+                </a>
 
-{% elif wiki_entry.category == "weapon" %}
-    <a href="{% url 'weapons' %}" class="back-button">
-        ← Back to Weapons
-    </a>
+            {% elif wiki_entry.category == "weapon" %}
+                <a href="{% url 'weapons' %}" class="back-button">
+                    ← Back to Weapons
+                </a>
 
-{% elif wiki_entry.category == "location" %}
-    <a href="{% url 'locations' %}" class="back-button">
-        ← Back to Locations
-    </a>
-{% endif %}
+            {% elif wiki_entry.category == "location" %}
+                <a href="{% url 'locations' %}" class="back-button">
+                    ← Back to Locations
+                </a>
+            {% endif %}
 
         </div>
 

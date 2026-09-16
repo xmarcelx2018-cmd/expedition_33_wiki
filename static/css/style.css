@@ -239,10 +239,10 @@ a:hover {
 .detail-content {
     line-height: 1.7;
     color: #e0e0e0;
+    overflow-wrap: anywhere;
 }
 
 .detail-actions {
-    margin-top: 2rem;
     display: flex;
     gap: 1rem;
 }
@@ -295,7 +295,6 @@ a:hover {
     background-color: #d6b36a;
     color: #111111;
 }
-
 .detail-actions-row {
     display: flex;
     justify-content: space-between;

@@ -82,13 +82,16 @@ class WikiCreate(LoginRequiredMixin, CreateView):
 
 class WikiUpdate(LoginRequiredMixin, UpdateView):
     """
-    Allow the author of a Wiki entry to edit it.
+    Allow the author or an administrator to edit a Wiki entry.
     """
     model = WikiEntry
     form_class = WikiEntryForm
     template_name = 'wiki/wiki_edit.html'
 
     def get_queryset(self):
+        if self.request.user.is_staff:
+            return WikiEntry.objects.all()
+
         return WikiEntry.objects.filter(author=self.request.user)
 
     def form_valid(self, form):
