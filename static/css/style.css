@@ -443,10 +443,29 @@ a:hover {
     display: block;
     width: 100%;
     height: auto;
-    max-height: none;
-    object-fit: contain;
+    max-height: 520px;
+    margin: 0 auto 1.5rem;
+    border: 1px solid #6f5b3e;
     border-radius: 4px;
+    object-fit: contain;
+    object-position: center;
+    background-color: #161513;
+}
+.character-detail-image-wrapper {
+    width: 100%;
+    height: 870px;
     margin-bottom: 1.5rem;
+    overflow: hidden;
+    border: 1px solid #6f5b3e;
+    border-radius: 4px;
+}
+
+.character-detail-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 /* Home page */
 .home-page {

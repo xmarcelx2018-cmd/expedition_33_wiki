@@ -16,11 +16,16 @@
         </div>
 
         {% if wiki_entry.image %}
-            <img
-                src="{{ wiki_entry.image.url }}"
-                alt="{{ wiki_entry.title }}"
-                class="detail-image"
+            <div
+                class="character-detail-image-wrapper"
+                style="background-image: url('{{ wiki_entry.image.url }}');"
             >
+                <img
+                    src="{{ wiki_entry.image.url }}"
+                    alt="{{ wiki_entry.title }}"
+                    class="character-detail-image"
+                >
+            </div>
         {% endif %}
 
         <div class="detail-content">
