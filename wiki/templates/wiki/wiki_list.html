@@ -19,7 +19,10 @@
 
             {% for entry in wiki_entries %}
                 <article class="weapon-row">
-                    <div class="weapon-table-image">
+                    <a
+    href="{% url 'wiki_detail' entry.pk %}"
+    class="weapon-table-image"
+>
                         {% if entry.image %}
                             <img
                                 src="{{ entry.image.url }}"
@@ -31,7 +34,7 @@
                                 alt="No image available"
                             >
                         {% endif %}
-                    </div>
+                    </a>
 
                     <div class="weapon-table-name">
                         <h2>
