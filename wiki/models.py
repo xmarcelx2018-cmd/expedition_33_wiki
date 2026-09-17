@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 class WikiEntry(models.Model):
@@ -18,8 +19,9 @@ class WikiEntry(models.Model):
         related_name='wiki_entries',
     )
     content = models.TextField(max_length=3000)
-    image = models.ImageField(
-        upload_to='wiki_images/',
+    image = CloudinaryField(
+        'image',
+        folder='wiki_images',
         blank=True,
         null=True
     )
