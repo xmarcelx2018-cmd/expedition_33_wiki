@@ -1,11 +1,19 @@
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
 
 from .models import WikiEntry
 from .forms import WikiEntryForm
+
 
 def register(request):
     if request.method == "POST":
@@ -40,6 +48,7 @@ class WikiList(ListView):
     def get_queryset(self):
         return WikiEntry.objects.filter(category=self.category)
 
+
 class MyEntries(LoginRequiredMixin, ListView):
     """
     Display Wiki entries created by the logged-in user.
@@ -73,11 +82,17 @@ class WikiCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        messages.success(self.request, "Wiki entry created successfully!")
+        messages.success(
+            self.request,
+            "Wiki entry created successfully!"
+        )
         return super().form_valid(form)
 
     def get_success_url(self):
-        return f'/wiki/{self.object.pk}/'
+        return reverse(
+            'wiki_detail',
+            kwargs={'pk': self.object.pk}
+        )
 
 
 class WikiUpdate(LoginRequiredMixin, UpdateView):
@@ -92,14 +107,22 @@ class WikiUpdate(LoginRequiredMixin, UpdateView):
         if self.request.user.is_staff:
             return WikiEntry.objects.all()
 
-        return WikiEntry.objects.filter(author=self.request.user)
+        return WikiEntry.objects.filter(
+            author=self.request.user
+        )
 
     def form_valid(self, form):
-        messages.success(self.request, "Wiki entry updated successfully!")
+        messages.success(
+            self.request,
+            "Wiki entry updated successfully!"
+        )
         return super().form_valid(form)
 
     def get_success_url(self):
-        return f'/wiki/{self.object.pk}/'
+        return reverse(
+            'wiki_detail',
+            kwargs={'pk': self.object.pk}
+        )
 
 
 class WikiDelete(LoginRequiredMixin, DeleteView):
@@ -114,7 +137,9 @@ class WikiDelete(LoginRequiredMixin, DeleteView):
         if self.request.user.is_staff:
             return WikiEntry.objects.all()
 
-        return WikiEntry.objects.filter(author=self.request.user)
+        return WikiEntry.objects.filter(
+            author=self.request.user
+        )
 
     def form_valid(self, form):
         messages.success(
@@ -127,13 +152,14 @@ class WikiDelete(LoginRequiredMixin, DeleteView):
         category = self.object.category
 
         if category == 'character':
-            return '/wiki/characters/'
+            return reverse('characters')
         elif category == 'weapon':
-            return '/wiki/weapons/'
+            return reverse('weapons')
         elif category == 'location':
-            return '/wiki/locations/'
+            return reverse('locations')
 
-        return '/wiki/characters/'
+        return reverse('characters')
+
 
 def home(request):
-        return render(request, "wiki/home.html")
+    return render(request, "wiki/home.html")
