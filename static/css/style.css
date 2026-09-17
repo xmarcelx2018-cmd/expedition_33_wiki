@@ -1,25 +1,42 @@
-/* Global */
+/* Global styles */
+:root {
+    --bg: #111111;
+    --panel: #1a1a1a;
+    --panel-strong: #161513;
+    --panel-soft: #211f1b;
+    --panel-alt: #101010;
+    --border: #333333;
+    --border-strong: #6f5b3e;
+    --border-muted: #444038;
+    --gold: #d6b36a;
+    --gold-soft: #f0d394;
+    --gold-deep: #75613f;
+    --text: #f5f5f5;
+    --text-soft: #dddddd;
+    --text-muted: #aaaaaa;
+    --heading: #ffffff;
+    --page-text: #c8c5be;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: Arial, sans-serif;
+    --shadow: rgba(0, 0, 0, 0.4);
+}
 html {
     min-height: 100%;
 }
-
 body {
     margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #111111;
-    color: #f5f5f5;
-    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
 }
-
 .site-main {
     flex: 1;
     width: 100%;
 }
-
-/* Navbar */
-
+/* Navigation */
 nav {
     position: sticky;
     top: 0;
@@ -28,10 +45,9 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1.1rem 2rem;
-    background-color: #1a1a1a;
-    border-bottom: 1px solid #6f5b3e;
+    background-color: var(--panel);
+    border-bottom: 1px solid var(--border-strong);
 }
-
 .nav-toggle {
     display: none;
     width: 32px;
@@ -40,7 +56,6 @@ nav {
     border: none;
     cursor: pointer;
 }
-
 .nav-toggle span {
     display: block;
     width: 100%;
@@ -49,30 +64,25 @@ nav {
     background-color: #d6b36a;
     transition: 0.2s ease;
 }
-
 .nav-logo {
     display: flex;
     align-items: center;
     text-decoration: none;
 }
-
 .nav-logo img {
     display: block;
     width: auto;
     height: 42px;
     object-fit: contain;
 }
-
 .nav-logo:hover {
     color: #f0d394;
 }
-
 .nav-links {
     display: flex;
     align-items: center;
     gap: 1.7rem;
 }
-
 .nav-links a,
 .nav-links button {
     position: relative;
@@ -80,7 +90,7 @@ nav {
     background: none;
     border: none;
     color: #f4f0e7;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--serif);
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.08rem;
@@ -88,7 +98,6 @@ nav {
     cursor: pointer;
     transition: color 0.2s ease;
 }
-
 .nav-links a::after,
 .nav-links button::after {
     content: "";
@@ -97,156 +106,129 @@ nav {
     bottom: -0.3rem;
     width: 0;
     height: 1px;
-    background-color: #d6b36a;
+    background-color: var(--gold);
     transform: translateX(-50%);
     transition: width 0.2s ease;
 }
-
 .nav-links a:hover,
 .nav-links button:hover {
-    color: #d6b36a;
+    color: var(--gold);
 }
-
 .nav-links a:hover::after,
 .nav-links button:hover::after {
     width: 100%;
 }
-
 .nav-links a.active {
-    color: #d6b36a;
+    color: var(--gold);
 }
-
 .nav-links a.active::after {
     width: 100%;
 }
-
 .nav-links form {
     margin: 0;
 }
-
+/* General wiki styles */
 .container {
     width: min(1100px, 90%);
     margin: 2rem auto;
 }
-
 h1, h2, h3 {
-    color: #ffffff;
+    color: var(--heading);
 }
-
 a {
-    color: #d6b36a;
+    color: var(--gold);
 }
-
 a:hover {
-    color: #f0d394;
+    color: var(--gold-soft);
 }
-
-/* Shared Wiki Styles */
-
-/* Wiki Entry List */
-
 .entry-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
-
+.wiki-card,
+.detail-card,
+.form-card,
+.register-card,
+.site-footer,
+.my-entry,
+.delete-card {
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+}
 .wiki-card {
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
     border-radius: 6px;
     padding: 1.5rem;
 }
-
 .wiki-card:hover {
-    border-color: #6f5b3e;
+    border-color: var(--border-strong);
 }
-
 .wiki-card h2 {
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
-
 .wiki-card h2 a {
-    color: #ffffff;
+    color: var(--heading);
     text-decoration: none;
 }
-
 .wiki-card h2 a:hover {
-    color: #d6b36a;
+    color: var(--gold);
 }
-
 .category {
-    color: #d6b36a;
+    color: var(--gold);
     font-size: 0.85rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.08rem;
 }
-
 .entry-content {
     line-height: 1.6;
-    color: #dddddd;
+    color: var(--text-soft);
 }
-
 .entry-meta {
     margin-top: 1.5rem;
     color: #999999;
     font-size: 0.8rem;
 }
-
 .entry-meta p {
     margin: 0.25rem 0;
 }
-
 .read-more {
     display: inline-block;
     margin-top: 1rem;
     text-decoration: none;
     font-weight: bold;
 }
-
-/* Wiki Detail Page */
-
 .detail-card {
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
     border-radius: 6px;
     padding: 2rem;
 }
-
 .detail-header {
     border-bottom: 1px solid #333333;
     padding-bottom: 1rem;
     margin-bottom: 1.5rem;
 }
-
 .detail-header h1 {
     margin: 0 0 0.5rem;
 }
-
 .detail-meta {
     color: #aaaaaa;
     font-size: 0.9rem;
     margin-bottom: 2rem;
 }
-
 .detail-meta p {
     margin: 0.3rem 0;
 }
-
 .detail-content {
     line-height: 1.7;
     color: #e0e0e0;
     overflow-wrap: anywhere;
 }
-
 .detail-actions {
     display: flex;
     gap: 1rem;
 }
-
 .btn-edit, .btn-delete {
     display: inline-block;
     padding: 0.7rem 1.1rem;
@@ -254,29 +236,22 @@ a:hover {
     text-decoration: none;
     font-weight: bold;
 }
-
 .btn-edit {
     background-color: #d6b36a;
     color: #111111;
 }
-
 .btn-edit:hover {
     background-color: #f0d394;
     color: #111111;
 }
-
 .btn-delete {
     background-color: #7a2f2f;
     color: #ffffff;
 }
-
 .btn-delete:hover {
     background-color: #9a3b3b;
     color: #ffffff;
 }
-
-/* Back Button */
-
 .back-button {
     display: inline-block;
     margin-top: 0;
@@ -290,7 +265,6 @@ a:hover {
     text-decoration: none;
     transition: all 0.2s ease;
 }
-
 .back-button:hover {
     background-color: #d6b36a;
     color: #111111;
@@ -301,42 +275,32 @@ a:hover {
     align-items: center;
     margin-top: 2rem;
 }
-
-/* Wiki Forms */
-
 .form-card {
     max-width: 700px;
     margin: 0 auto;
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
     border-radius: 6px;
     padding: 2rem;
 }
-
 .form-card h1 {
     margin-top: 0;
     margin-bottom: 2rem;
 }
-
 .form-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
-
 .wiki-form p {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
 }
-
 .wiki-form label {
     font-weight: bold;
     color: #d6b36a;
 }
-
 .wiki-form input, .wiki-form select, .wiki-form textarea {
     background-color: #111111;
     color: #f5f5f5;
@@ -345,25 +309,21 @@ a:hover {
     padding: 0.75rem;
     font: inherit;
 }
-
 .wiki-form textarea {
     min-height: 180px;
     resize: vertical;
 }
-
 .wiki-form input:focus,
 .wiki-form select:focus,
 .wiki-form textarea:focus {
     outline: 2px solid #d6b36a;
     border-color: #d6b36a;
 }
-
 .wiki-form .errorlist {
     color: #e38b8b;
     margin: 0 0 0.5rem;
     padding-left: 1.2rem;
 }
-
 .form-submit {
     background-color: #d6b36a;
     color: #111111;
@@ -373,22 +333,16 @@ a:hover {
     font-weight: bold;
     cursor: pointer;
 }
-
 .form-submit:hover {
     background-color: #f0d394;
 }
-
-/* Register Page */
-
 .register-card {
     max-width: 600px;
     margin: 3rem auto;
     padding: 2.5rem;
-    background-color: #1a1a1a;
-    border: 1px solid #6f5b3e;
+    border: 1px solid var(--border-strong);
     border-radius: 4px;
 }
-
 .register-card h1 {
     margin-top: 0;
     color: #d6b36a;
@@ -399,18 +353,15 @@ a:hover {
     text-align: center;
     text-transform: uppercase;
 }
-
 .register-card form p {
     margin-bottom: 1.4rem;
 }
-
 .register-card label {
     display: block;
     margin-bottom: 0.5rem;
     color: #f4f0e7;
     font-weight: 600;
 }
-
 .register-card input {
     box-sizing: border-box;
     width: 100%;
@@ -421,12 +372,10 @@ a:hover {
     color: #f5f5f5;
     font: inherit;
 }
-
 .register-card input:focus {
     outline: none;
     border-color: #d6b36a;
 }
-
 .register-card .helptext {
     display: block;
     margin-top: 0.5rem;
@@ -434,7 +383,6 @@ a:hover {
     font-size: 0.8rem;
     line-height: 1.5;
 }
-
 .register-card ul {
     margin-top: 0.5rem;
     padding-left: 1.2rem;
@@ -442,7 +390,6 @@ a:hover {
     font-size: 0.8rem;
     line-height: 1.5;
 }
-
 .register-card button {
     width: 100%;
     padding: 0.8rem;
@@ -457,13 +404,9 @@ a:hover {
     text-transform: uppercase;
     cursor: pointer;
 }
-
 .register-card button:hover {
     background-color: #f0d394;
 }
-
-/* Messages */
-
 .message-container {
     display: flex;
     justify-content: center;
@@ -471,7 +414,6 @@ a:hover {
     padding: 1.5rem 1rem 0;
     box-sizing: border-box;
 }
-
 .site-message {
     width: 100%;
     max-width: 600px;
@@ -480,15 +422,11 @@ a:hover {
     text-align: center;
     font-size: 0.95rem;
 }
-
 .site-message.success {
     background-color: #18251c;
     border: 1px solid #4f8a5b;
     color: #8fd19e;
 }
-
-/* Form Errors */
-
 .register-card .errorlist {
     margin: 0 0 1rem;
     padding: 0;
@@ -498,13 +436,9 @@ a:hover {
     line-height: 1.5;
     list-style: none;
 }
-
 .register-card .errorlist li {
     margin-bottom: 0.4rem;
 }
-
-/* Detail Images */
-
 .detail-image {
     display: block;
     width: 100%;
@@ -514,23 +448,17 @@ a:hover {
     border-radius: 4px;
     margin-bottom: 1.5rem;
 }
-
-/* Home Page */
-
+/* Home page */
 .home-page {
     width: min(1200px, 90%);
     margin: 0 auto;
     padding: 4rem 0 6rem;
 }
-
-/* Home Hero */
-
 .home-hero {
     max-width: 850px;
     margin: 0 auto 4rem;
     text-align: center;
 }
-
 .home-hero h1 {
     margin: 0;
     color: #f4f0e7;
@@ -541,7 +469,6 @@ a:hover {
     letter-spacing: 0.08rem;
     text-transform: uppercase;
 }
-
 .home-hero h1 span {
     display: block;
     margin-top: 0.2rem;
@@ -551,7 +478,6 @@ a:hover {
     font-variant-numeric: lining-nums;
     font-feature-settings: "lnum" 1;
 }
-
 .home-hero-ornament {
     position: relative;
     width: 60%;
@@ -560,7 +486,6 @@ a:hover {
     font-family: Georgia, "Times New Roman", serif;
     font-size: 1rem;
 }
-
 .home-hero-ornament::before,
 .home-hero-ornament::after {
     content: "";
@@ -570,16 +495,13 @@ a:hover {
     height: 1px;
     background: linear-gradient(90deg, transparent, #75613f);
 }
-
 .home-hero-ornament::before {
     left: 0;
 }
-
 .home-hero-ornament::after {
     right: 0;
     transform: rotate(180deg);
 }
-
 .home-intro {
     max-width: 680px;
     margin: 0 auto;
@@ -587,9 +509,6 @@ a:hover {
     font-size: 1.15rem;
     line-height: 1.8;
 }
-
-/* Home Image */
-
 .home-image {
     position: relative;
     max-width: 1100px;
@@ -599,21 +518,16 @@ a:hover {
     background-color: #161513;
     clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px);
 }
-
 .home-image img {
     display: block;
     width: 100%;
     height: auto;
     object-fit: cover;
 }
-
-/* Home Section Headings */
-
 .home-section-heading {
     margin-bottom: 2.5rem;
     text-align: center;
 }
-
 .home-section-heading h2 {
     margin: 0;
     color: #f4f0e7;
@@ -623,67 +537,51 @@ a:hover {
     letter-spacing: 0.2rem;
     text-transform: uppercase;
 }
-
 .home-section-heading span {
     display: block;
     margin-top: 1rem;
     color: #d6b36a;
     font-size: 0.9rem;
 }
-
-/* About the Game */
-
 .home-about {
     max-width: 850px;
     margin: 0 auto 7rem;
 }
-
 .home-about p {
     color: #c8c5be;
     font-size: 1.15rem;
     line-height: 1.9;
     margin: 0 0 1.5rem;
 }
-
-/* Home Combat */
-
 .home-combat {
     max-width: 900px;
     margin: 0 auto 7rem;
 }
-
 .home-combat-image {
     padding: 6px;
     margin-bottom: 2rem;
     background-color: #161513;
     border: 1px solid #75613f;
 }
-
 .home-combat-image img {
     display: block;
     width: 100%;
     height: auto;
 }
-
 .home-combat-description {
     max-width: 800px;
     margin: 0 auto;
 }
-
 .home-combat-description p {
     margin: 0 0 1.5rem;
     color: #c8c5be;
     font-size: 1.15rem;
     line-height: 1.9;
 }
-
-/* Explore the Wiki */
-
 .home-explore {
     max-width: 950px;
     margin: 0 auto;
 }
-
 .home-explore-intro {
     max-width: 650px;
     margin: -1rem auto 3rem;
@@ -692,13 +590,11 @@ a:hover {
     font-size: 1.15rem;
     line-height: 1.7;
 }
-
 .home-explore-links {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
-
 .home-explore-item {
     position: relative;
     display: grid;
@@ -713,7 +609,6 @@ a:hover {
     clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
     transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
-
 .home-explore-content h3 {
     margin: 0 0 0.5rem;
     color: #f4f0e7;
@@ -724,7 +619,6 @@ a:hover {
     text-transform: uppercase;
     transition: color 0.25s ease;
 }
-
 .home-explore-content p {
     max-width: 650px;
     margin: 0;
@@ -732,33 +626,25 @@ a:hover {
     font-size: 1.1rem;
     line-height: 1.6;
 }
-
 .home-explore-arrow {
     justify-self: end;
     color: #d6b36a;
     font-size: 1.5rem;
     transition: transform 0.25s ease;
 }
-
-/* Explore Hover */
-
 .home-explore-item:hover {
     transform: translateX(6px);
     border-color: #b89758;
     background: linear-gradient(135deg, #211e19 0%, #181613 55%, #111111 100%);
     color: #f4f0e7;
 }
-
 .home-explore-item:hover h3 {
     color: #d6b36a;
 }
-
 .home-explore-item:hover .home-explore-arrow {
     transform: translateX(5px);
 }
-
-/* Character Cards */
-
+/* Characters */
 .character-card {
     position: relative;
     overflow: hidden;
@@ -771,9 +657,6 @@ a:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 0 25px rgba(214, 179, 106, 0.03);
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* Decorative Gold Line */
-
 .character-card::before {
     content: "";
     position: absolute;
@@ -784,9 +667,6 @@ a:hover {
     background: linear-gradient(90deg, transparent, #d6b36a, transparent);
     opacity: 0.9;
 }
-
-/* Character Portrait */
-
 .character-card .wiki-card-image {
     width: 100%;
     height: 340px;
@@ -798,9 +678,6 @@ a:hover {
     margin-bottom: 0;
     transition: transform 0.35s ease, filter 0.35s ease;
 }
-
-/* Character Name */
-
 .character-card h2 {
     position: relative;
     margin-top: 1.7rem;
@@ -812,9 +689,6 @@ a:hover {
     letter-spacing: 0.1rem;
     text-transform: uppercase;
 }
-
-/* Diamond Ornament */
-
 .character-card h2::before {
     content: "◇";
     position: absolute;
@@ -824,17 +698,11 @@ a:hover {
     color: #d6b36a;
     font-size: 1rem;
 }
-
-/* Character Name Link */
-
 .character-card h2 a {
     color: #f4f0e7;
     text-decoration: none;
     transition: color 0.25s ease;
 }
-
-/* Character Category */
-
 .character-card .category {
     margin-top: 0;
     color: #c7a765;
@@ -843,9 +711,6 @@ a:hover {
     font-weight: bold;
     letter-spacing: 0.18rem;
 }
-
-/* Character Description */
-
 .character-card .entry-content {
     margin-top: 1rem;
     padding-top: 1rem;
@@ -853,9 +718,6 @@ a:hover {
     color: #cbc8c1;
     line-height: 1.7;
 }
-
-/* Character Read More */
-
 .character-card .read-more {
     display: inline-block;
     margin-top: auto;
@@ -868,49 +730,33 @@ a:hover {
     text-transform: uppercase;
     transition: color 0.25s ease, letter-spacing 0.25s ease;
 }
-
-/* Arrow After Read More */
-
 .character-card .read-more::after {
     content: " →";
 }
-
-/* Character Card Hover */
-
 .character-card:hover {
     transform: translateY(-6px);
     border-color: #b89758;
     box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55), 0 0 20px rgba(214, 179, 106, 0.1);
 }
-
 .character-card:hover .wiki-card-image {
     transform: scale(1.015);
     filter: brightness(1.05);
 }
-
 .character-card:hover h2 a {
     color: #d6b36a;
 }
-
 .character-card .read-more:hover {
     color: #f0d394;
     letter-spacing: 0.12rem;
 }
-
-/* Clickable Card Images */
-
 .card-image-link {
     display: block;
     overflow: hidden;
     text-decoration: none;
 }
-
 .card-image-link .wiki-card-image {
     cursor: pointer;
 }
-
-/* Character Page Title */
-
 .character-page-title {
     position: relative;
     width: fit-content;
@@ -924,7 +770,6 @@ a:hover {
     text-transform: uppercase;
     text-align: center;
 }
-
 .character-page-title::before {
     content: "◇";
     position: absolute;
@@ -937,7 +782,6 @@ a:hover {
     padding: 0 0.8rem;
     z-index: 1;
 }
-
 .character-page-title::after {
     content: "";
     position: absolute;
@@ -947,20 +791,15 @@ a:hover {
     height: 1px;
     background: linear-gradient(90deg, transparent, #6f5b3e 20%, #d6b36a 50%, #6f5b3e 80%, transparent);
 }
-
-/* Combat Styles */
-
 .combat-styles {
     max-width: 1000px;
     margin: 6rem auto 2rem;
     padding-top: 3rem;
 }
-
 .combat-styles-header {
     text-align: center;
     margin-bottom: 4rem;
 }
-
 .combat-styles-header h2 {
     position: relative;
     width: fit-content;
@@ -972,7 +811,6 @@ a:hover {
     letter-spacing: 0.22rem;
     text-transform: uppercase;
 }
-
 .combat-styles-header h2::after {
     content: "◇";
     position: absolute;
@@ -982,7 +820,6 @@ a:hover {
     color: #d6b36a;
     font-size: 0.9rem;
 }
-
 .combat-styles-header p {
     max-width: 650px;
     margin: 2.5rem auto 0;
@@ -990,14 +827,10 @@ a:hover {
     font-size: 1.15rem;
     line-height: 1.7;
 }
-
-/* Combat Style Rows */
-
 .combat-timeline {
     max-width: 950px;
     margin: 0 auto;
 }
-
 .combat-style-row {
     display: grid;
     grid-template-columns: minmax(0, 1.6fr) minmax(220px, 0.8fr);
@@ -1005,9 +838,6 @@ a:hover {
     align-items: stretch;
     margin-bottom: 2rem;
 }
-
-/* Combat Style Boxes */
-
 .combat-style {
     position: relative;
     display: grid;
@@ -1023,7 +853,6 @@ a:hover {
     box-shadow: inset 0 0 30px rgba(214, 179, 106, 0.025), 0 8px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.25s ease, background 0.25s ease;
 }
-
 .combat-style::before {
     content: "";
     position: absolute;
@@ -1032,9 +861,6 @@ a:hover {
     border: 1px solid rgba(214, 179, 106, 0.08);
     clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
 }
-
-/* Combat Diamond */
-
 .combat-marker {
     position: relative;
     z-index: 2;
@@ -1045,14 +871,10 @@ a:hover {
     font-family: Georgia, "Times New Roman", serif;
     font-size: 1.5rem;
 }
-
-/* Combat Style Content */
-
 .combat-style-content {
     position: relative;
     z-index: 2;
 }
-
 .combat-style-content h3 {
     margin: 0 0 0.35rem;
     color: #f4f0e7;
@@ -1062,7 +884,6 @@ a:hover {
     letter-spacing: 0.12rem;
     text-transform: uppercase;
 }
-
 .combat-style-content span {
     display: inline-block;
     margin-bottom: 0.9rem;
@@ -1074,7 +895,6 @@ a:hover {
     text-transform: uppercase;
     margin-top: 0.3rem;
 }
-
 .combat-style-content p {
     max-width: 700px;
     margin: 0;
@@ -1082,9 +902,6 @@ a:hover {
     font-size: 1.1rem;
     line-height: 1.7;
 }
-
-/* Combat Style Images */
-
 .combat-style-media {
     position: relative;
     overflow: hidden;
@@ -1093,7 +910,6 @@ a:hover {
     border: 1px solid #75613f;
     clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
 }
-
 .combat-style-media img {
     width: 100%;
     height: 100%;
@@ -1102,27 +918,21 @@ a:hover {
     object-position: center;
     transition: transform 0.35s ease, filter 0.35s ease;
 }
-
-/* Combat Style Hover */
-
 .combat-style:hover {
     transform: translateY(-3px);
     background: linear-gradient(135deg, rgba(40, 37, 31, 0.98), rgba(22, 21, 19, 0.98));
 }
-
 .combat-style-row:hover .combat-style-media img {
     transform: scale(1.03);
     filter: brightness(1.08);
 }
-
 .combat-timeline-end {
     display: none;
 }
-
-/* Weapon Page Title */
-
+/* Weapons and locations */
 .weapon-page-title,
-.location-page-title {
+.location-page-title,
+.my-entries-title {
     position: relative;
     margin: 3rem auto 4rem;
     color: #f4f0e7;
@@ -1133,9 +943,9 @@ a:hover {
     text-align: center;
     text-transform: uppercase;
 }
-
 .weapon-page-title::after,
-.location-page-title::after {
+.location-page-title::after,
+.my-entries-title::after {
     content: "◇";
     display: block;
     width: 260px;
@@ -1148,16 +958,12 @@ a:hover {
         linear-gradient(#6f5b3e, #6f5b3e) left center / 105px 1px no-repeat,
         linear-gradient(#6f5b3e, #6f5b3e) right center / 105px 1px no-repeat;
 }
-
-/* Weapons */
-
 .weapon-table {
     max-width: 1100px;
     margin: 2rem auto 6rem;
     background-color: #1a1a1a;
     border: 1px solid #6f5b3e;
 }
-
 .weapon-table-header {
     display: grid;
     grid-template-columns: 300px 160px 1fr;
@@ -1170,18 +976,15 @@ a:hover {
     letter-spacing: 0.06rem;
     text-transform: uppercase;
 }
-
 .weapon-table-header span {
     display: flex;
     align-items: center;
     padding: 1rem 1.2rem;
 }
-
 .weapon-table-header span:nth-child(2),
 .weapon-table-header span:nth-child(3) {
     border-left: 1px solid #444038;
 }
-
 .weapon-row {
     display: grid;
     grid-template-columns: 300px 160px 1fr;
@@ -1190,11 +993,9 @@ a:hover {
     border-bottom: 1px solid #444038;
     align-items: stretch;
 }
-
 .weapon-row:last-child {
     border-bottom: none;
 }
-
 .weapon-table-image {
     display: flex;
     align-items: center;
@@ -1203,13 +1004,11 @@ a:hover {
     overflow: hidden;
     border-right: 1px solid #444038;
 }
-
 .weapon-table-image a {
     display: block;
     width: 100%;
     height: 100%;
 }
-
 .weapon-table-image img {
     display: block;
     width: 100%;
@@ -1220,13 +1019,11 @@ a:hover {
     border: 1px solid #6f5b3e;
     border-radius: 3px;
 }
-
 .weapon-table-name {
     display: flex;
     align-items: center;
     padding: 1.2rem;
 }
-
 .weapon-table-name h2 {
     margin: 0;
     font-family: Georgia, "Times New Roman", serif;
@@ -1235,17 +1032,14 @@ a:hover {
     letter-spacing: 0.04rem;
     text-transform: uppercase;
 }
-
 .weapon-table-name a {
     color: #e0a84f;
     text-decoration: none;
     transition: color 0.2s ease;
 }
-
 .weapon-table-name a:hover {
     color: #f0d394;
 }
-
 .weapon-table-description {
     display: flex;
     flex-direction: column;
@@ -1253,41 +1047,31 @@ a:hover {
     padding: 1.5rem;
     border-left: 1px solid #444038;
 }
-
 .weapon-table-description p {
     margin: 0 0 1rem;
     color: #c8c5be;
     font-size: 0.95rem;
     line-height: 1.7;
 }
-
 .weapon-table-description .read-more {
     color: #d6b36a;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 0.85rem;
     text-decoration: none;
 }
-
 .weapon-table-description .read-more:hover {
     color: #f0d394;
 }
-
-/* Weapon Card Images */
-
 .weapon-image {
     width: 100%;
     height: 340px;
     object-fit: cover;
     object-position: center;
 }
-
-/* Locations */
-
 .location-list {
     max-width: 1100px;
     margin: 2rem auto 6rem;
 }
-
 .location-row {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
@@ -1297,18 +1081,15 @@ a:hover {
     border: 1px solid #6f5b3e;
     overflow: hidden;
 }
-
 .location-image {
     min-height: 360px;
     overflow: hidden;
 }
-
 .location-image a {
     display: block;
     width: 100%;
     height: 100%;
 }
-
 .location-image img {
     display: block;
     width: 100%;
@@ -1317,18 +1098,15 @@ a:hover {
     object-fit: cover;
     transition: transform 0.4s ease;
 }
-
 .location-image:hover img {
     transform: scale(1.03);
 }
-
 .location-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 3rem;
 }
-
 .location-content h2 {
     margin: 0 0 1.2rem;
     font-family: Georgia, "Times New Roman", serif;
@@ -1337,24 +1115,20 @@ a:hover {
     letter-spacing: 0.06rem;
     text-transform: uppercase;
 }
-
 .location-content h2 a {
     color: #d6b36a;
     text-decoration: none;
     transition: color 0.2s ease;
 }
-
 .location-content h2 a:hover {
     color: #f0d394;
 }
-
 .location-content p {
     margin: 0 0 1.8rem;
     color: #c8c5be;
     font-size: 0.95rem;
     line-height: 1.8;
 }
-
 .location-link {
     align-self: flex-start;
     padding-bottom: 0.3rem;
@@ -1367,54 +1141,21 @@ a:hover {
     text-transform: uppercase;
     transition: color 0.2s ease, border-color 0.2s ease;
 }
-
 .location-link:hover {
     color: #f0d394;
     border-color: #f0d394;
 }
-
-/* Alternate Location Layout */
-
 .location-row:nth-child(even) .location-image {
     order: 2;
 }
-
 .location-row:nth-child(even) .location-content {
     order: 1;
 }
-
-/* My Entries */
-
-.my-entries-title {
-    position: relative;
-    margin: 3rem auto 4rem;
-    color: #f4f0e7;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 2.8rem;
-    font-weight: 400;
-    letter-spacing: 0.12rem;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.my-entries-title::after {
-    content: "◇";
-    display: block;
-    width: 260px;
-    margin: 1rem auto 0;
-    color: #d6b36a;
-    font-size: 0.9rem;
-    line-height: 1px;
-    background:
-        linear-gradient(#6f5b3e, #6f5b3e) left center / 105px 1px no-repeat,
-        linear-gradient(#6f5b3e, #6f5b3e) right center / 105px 1px no-repeat;
-}
-
+/* My entries */
 .my-entries-list {
     max-width: 1000px;
     margin: 0 auto 6rem;
 }
-
 .my-entry {
     display: flex;
     justify-content: space-between;
@@ -1426,27 +1167,22 @@ a:hover {
     border: 1px solid #444038;
     border-left: 3px solid #6f5b3e;
 }
-
 .my-entry-info {
     flex: 1;
 }
-
 .my-entry-info h2 {
     margin: 0 0 0.5rem;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 1.5rem;
     font-weight: 400;
 }
-
 .my-entry-info h2 a {
     color: #d6b36a;
     text-decoration: none;
 }
-
 .my-entry-info h2 a:hover {
     color: #f0d394;
 }
-
 .my-entry-info .category {
     margin: 0 0 0.8rem;
     color: #d6b36a;
@@ -1455,19 +1191,16 @@ a:hover {
     letter-spacing: 0.08rem;
     text-transform: uppercase;
 }
-
 .my-entry-info > p:last-child {
     margin: 0;
     color: #c8c5be;
     line-height: 1.6;
 }
-
 .my-entry-actions {
     display: flex;
     gap: 0.6rem;
     flex-shrink: 0;
 }
-
 .my-entry-actions a {
     padding: 0.6rem 0.9rem;
     border: 1px solid #6f5b3e;
@@ -1479,32 +1212,26 @@ a:hover {
     text-transform: uppercase;
     transition: all 0.2s ease;
 }
-
 .my-entry-actions a:hover {
     background-color: #d6b36a;
     color: #111111;
 }
-
 .my-entry-actions a:last-child {
     border-color: #8a4545;
     color: #d47a7a;
 }
-
 .my-entry-actions a:last-child:hover {
     background-color: #8a4545;
     border-color: #8a4545;
     color: #f5f5f5;
 }
-
-/* Delete Page */
-
+/* Delete page */
 .delete-page {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 3rem 0;
 }
-
 .delete-card {
     box-sizing: border-box;
     width: 100%;
@@ -1515,7 +1242,6 @@ a:hover {
     border-radius: 4px;
     text-align: center;
 }
-
 .delete-card h1 {
     margin: 0;
     color: #d6b36a;
@@ -1525,7 +1251,6 @@ a:hover {
     letter-spacing: 0.08rem;
     text-transform: uppercase;
 }
-
 .delete-divider {
     display: flex;
     align-items: center;
@@ -1534,7 +1259,6 @@ a:hover {
     margin: 1.2rem auto 2rem;
     color: #d6b36a;
 }
-
 .delete-divider::before,
 .delete-divider::after {
     content: "";
@@ -1542,36 +1266,30 @@ a:hover {
     height: 1px;
     background-color: #6f5b3e;
 }
-
 .delete-divider span {
     margin: 0 0.8rem;
     font-size: 0.8rem;
 }
-
 .delete-message {
     margin: 0 0 0.8rem;
     color: #f4f0e7;
     font-size: 1rem;
     line-height: 1.7;
 }
-
 .delete-message strong {
     color: #d6b36a;
 }
-
 .delete-warning {
     margin: 0 0 2.5rem;
     color: #aaa69e;
     font-size: 0.85rem;
 }
-
 .delete-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
-
 .delete-confirm {
     padding: 0.7rem 1.2rem;
     background-color: transparent;
@@ -1584,14 +1302,11 @@ a:hover {
     cursor: pointer;
     transition: all 0.2s ease;
 }
-
 .delete-confirm:hover {
     background-color: #8a4545;
     color: #f5f5f5;
 }
-
 /* Footer */
-
 .site-footer {
     margin-top: auto;
     padding: 1.5rem 2rem;
@@ -1599,54 +1314,43 @@ a:hover {
     border-top: 1px solid #6f5b3e;
     text-align: center;
 }
-
 .footer-content {
     max-width: 900px;
     margin: 0 auto;
 }
-
 .footer-content > p {
     margin: 0 0 0.4rem;
     color: #aaa69e;
     font-size: 0.85rem;
 }
-
 .footer-copyright {
     margin-bottom: 0.5rem !important;
     color: #d6b36a !important;
     font-family: "Times New Roman", serif;
     font-size: 0.9rem !important;
 }
-
 .footer-disclaimer {
     margin-bottom: 0 !important;
     color: #77736c !important;
     font-size: 0.72rem !important;
 }
-
+/* Responsive styles */
 .nav-toggle.active span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
-
 .nav-toggle.active span:nth-child(2) {
     opacity: 0;
 }
-
 .nav-toggle.active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
-
-/* Media Queries */
-
 @media (max-width: 800px) {
     nav {
         flex-wrap: wrap;
     }
-
     .nav-toggle {
         display: block;
     }
-
     .nav-links {
         width: 100%;
         max-height: 0;
@@ -1661,19 +1365,16 @@ a:hover {
             opacity 0.3s ease,
             padding 0.4s ease;
     }
-
     .nav-links.active {
         max-height: 500px;
         padding: 1.5rem 0 0.8rem;
         opacity: 1;
     }
-
     .nav-links a,
     .nav-links form {
         width: 100%;
         text-align: center;
     }
-
     .nav-links a,
     .nav-links button {
         display: block;
@@ -1682,39 +1383,32 @@ a:hover {
         padding: 0.9rem 1rem;
         border-bottom: 1px solid #2d2923;
     }
-
     .nav-links a:hover,
     .nav-links button:hover {
         background-color: #211f1b;
         color: #d6b36a;
     }
-
     .nav-links a::after,
     .nav-links button::after {
         display: none;
     }
 }
-
 @media (max-width: 750px) {
     .combat-styles {
         margin-top: 4rem;
         padding-top: 2rem;
     }
-
     .combat-styles-header {
         margin-bottom: 3rem;
     }
-
     .combat-styles-header h2 {
         font-size: 1.7rem;
         letter-spacing: 0.15rem;
     }
-
     .combat-style-row {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-
     .combat-style {
         width: auto;
         grid-template-columns: 30px 1fr;
@@ -1722,160 +1416,127 @@ a:hover {
         padding: 1.4rem 1.2rem;
         clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
     }
-
     .combat-style-content h3 {
         font-size: 1.25rem;
     }
-
     .combat-style-content p {
         font-size: 0.9rem;
     }
-
     .combat-marker {
         font-size: 1.2rem;
     }
-
     .combat-style-media {
         min-height: 200px;
         max-height: 320px;
     }
 }
-
 @media (max-width: 700px) {
     .home-page {
         padding-top: 2.5rem;
     }
-
     .home-hero {
         margin-bottom: 3rem;
     }
-
     .home-hero h1 {
         font-size: 2.5rem;
     }
-
     .home-hero-ornament {
         width: 85%;
     }
-
     .home-image {
         margin-bottom: 4.5rem;
     }
-
     .home-about {
         margin-bottom: 5rem;
     }
-
     .home-section-heading h2 {
         font-size: 1.7rem;
         letter-spacing: 0.14rem;
     }
-
     .home-explore-item {
         grid-template-columns: 1fr 25px;
         gap: 1rem;
         padding: 1.4rem 1.2rem;
     }
-
     .home-explore-content h3 {
         font-size: 1.2rem;
     }
-
     .home-explore-content p {
         font-size: 0.9rem;
     }
-
     .weapon-table {
         border: none;
     }
-
     .weapon-table-header {
         display: none;
     }
-
     .weapon-row {
         display: block;
         margin-bottom: 2rem;
         border: 1px solid #6f5b3e;
     }
-
     .weapon-table-image {
         width: 100%;
         padding: 0;
     }
-
     .weapon-table-image a {
         display: block;
     }
-
     .weapon-table-image img {
         display: block;
         width: 100%;
         height: auto;
         object-fit: contain;
     }
-
     .weapon-table-name {
         padding: 1.25rem 1.5rem 0.5rem;
         text-align: center;
     }
-
     .weapon-table-name h2 {
         margin: 0;
     }
-
     .weapon-table-description {
         padding: 0.5rem 1.5rem 1.5rem;
     }
-
     .weapon-preview {
         line-height: 1.7;
     }
-
     .weapon-table-description .read-more {
         display: inline-block;
         margin-top: 0.5rem;
     }
-
     .location-row {
         display: flex;
         flex-direction: column;
         min-height: 0;
         margin-bottom: 2.5rem;
     }
-
     .location-image,
     .location-row:nth-child(even) .location-image {
         order: 1;
         width: 100%;
         min-height: 0;
     }
-
     .location-content,
     .location-row:nth-child(even) .location-content {
         order: 2;
     }
-
     .location-image a {
         height: auto;
     }
-
     .location-image img {
         width: 100%;
         height: auto;
         min-height: 0;
         object-fit: contain;
     }
-
     .location-content {
         padding: 1.75rem 1.5rem;
     }
-
     .location-content h2 {
         font-size: 1.6rem;
     }
 }
-
 @media (max-width: 600px) {
     .character-page-title {
         margin-top: 2rem;
@@ -1884,47 +1545,37 @@ a:hover {
         font-size: 2rem;
         letter-spacing: 0.18rem;
     }
-
     .detail-actions-row {
         flex-direction: column;
         align-items: stretch;
         gap: 1rem;
     }
-
     .detail-actions {
         width: 100%;
     }
-
     .back-button {
         align-self: flex-start;
         white-space: nowrap;
     }
-
-    /* My Entries */
 .my-entry {
     flex-direction: column;
     align-items: stretch;
     gap: 1.5rem;
     padding: 1.5rem;
 }
-
 .my-entry-info {
     width: 100%;
 }
-
 .my-entry-info h2 {
     font-size: 1.4rem;
 }
-
 .my-entry-info > p:last-child {
     width: 100%;
     line-height: 1.7;
 }
-
 .my-entry-actions {
     width: 100%;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
 }
-
