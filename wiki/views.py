@@ -62,6 +62,17 @@ class MyEntries(LoginRequiredMixin, ListView):
             author=self.request.user
         ).order_by('-created_on')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        queryset = self.get_queryset()
+        category_order = ['character', 'weapon', 'location']
+
+        context['entries_by_category'] = {
+            category: queryset.filter(category=category)
+            for category in category_order
+        }
+        return context
+
 
 class WikiDetail(DetailView):
     """

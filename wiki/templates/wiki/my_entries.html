@@ -5,54 +5,58 @@
 <div class="container wiki-list">
 
     <h1 class="wiki-page-title my-entries-title">
-    My Entries
-</h1>
+        My Entries
+    </h1>
 
     <div class="my-entries-list">
 
-        {% for entry in wiki_entries %}
+        {% if wiki_entries %}
+            {% for category, entries in entries_by_category.items %}
+                {% if entries %}
+                    <section class="my-entries-category">
+                        <h2>{{ category|title }}s</h2>
 
-            <article class="my-entry">
+                        {% for entry in entries %}
+                            <article class="my-entry">
+                                <div class="my-entry-info">
+                                    <h3>
+                                        <a href="{% url 'wiki_detail' entry.pk %}">
+                                            {{ entry.title }}
+                                        </a>
+                                    </h3>
 
-                <div class="my-entry-info">
-                    <h2>
-                        <a href="{% url 'wiki_detail' entry.pk %}">
-                            {{ entry.title }}
-                        </a>
-                    </h2>
+                                    <p class="category">
+                                        {{ entry.get_category_display }}
+                                    </p>
 
-                    <p class="category">
-                        {{ entry.get_category_display }}
-                    </p>
+                                    <p>
+                                        {{ entry.content|truncatewords:25 }}
+                                    </p>
+                                </div>
 
-                    <p>
-                        {{ entry.content|truncatewords:25 }}
-                    </p>
-                </div>
+                                <div class="my-entry-actions">
+                                    <a href="{% url 'wiki_detail' entry.pk %}">
+                                        View
+                                    </a>
 
-                <div class="my-entry-actions">
-                    <a href="{% url 'wiki_detail' entry.pk %}">
-                        View
-                    </a>
+                                    <a href="{% url 'wiki_edit' entry.pk %}">
+                                        Edit
+                                    </a>
 
-                    <a href="{% url 'wiki_edit' entry.pk %}">
-                        Edit
-                    </a>
-
-                    <a href="{% url 'wiki_delete' entry.pk %}">
-                        Delete
-                    </a>
-                </div>
-
-            </article>
-
-        {% empty %}
-
+                                    <a href="{% url 'wiki_delete' entry.pk %}">
+                                        Delete
+                                    </a>
+                                </div>
+                            </article>
+                        {% endfor %}
+                    </section>
+                {% endif %}
+            {% endfor %}
+        {% else %}
             <p class="no-entries">
                 You haven't created any wiki entries yet.
             </p>
-
-        {% endfor %}
+        {% endif %}
 
     </div>
 
