@@ -20,9 +20,10 @@
             {% for entry in wiki_entries %}
                 <article class="weapon-row">
                     <a
-    href="{% url 'wiki_detail' entry.pk %}"
-    class="weapon-table-image"
->
+                        href="{% url 'wiki_detail' entry.pk %}"
+                        class="weapon-table-image"
+                        aria-label="View {{ entry.title }} details"
+                    >
                         {% if entry.image %}
                             <img
                                 src="{{ entry.image.url }}"
@@ -67,7 +68,10 @@
             {% for entry in wiki_entries %}
                 <article class="location-row">
                     <div class="location-image">
-                        <a href="{% url 'wiki_detail' entry.pk %}">
+                        <a
+                            href="{% url 'wiki_detail' entry.pk %}"
+                            aria-label="View {{ entry.title }} details"
+                        >
                             {% if entry.image %}
                                 <img
                                     src="{{ entry.image.url }}"
@@ -114,6 +118,7 @@
                     <a
                         href="{% url 'wiki_detail' entry.pk %}"
                         class="card-image-link"
+                        aria-label="View {{ entry.title }} details"
                     >
                         {% if entry.image %}
                             <img
