@@ -1391,6 +1391,56 @@ a:hover {
 .nav-toggle.active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
+/* 404 Page */
+
+.error-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+    text-align: center;
+}
+
+.error-content {
+    max-width: 650px;
+}
+
+.error-content h1 {
+    margin: 0;
+    color: #d6b36a;
+    font-family: var(--serif);
+    font-size: 7rem;
+    line-height: 1;
+}
+
+.error-content h2 {
+    margin: 1rem 0;
+    font-family: var(--serif);
+    font-size: 2rem;
+}
+
+.error-content p {
+    margin-bottom: 2rem;
+    color: #c8c5be;
+    font-size: 1.05rem;
+}
+
+.error-home-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #d6b36a;
+    border-radius: 4px;
+    color: #d6b36a;
+    font-family: var(--serif);
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.error-home-link:hover {
+    background: #d6b36a;
+    color: #111111;
+}
 @media (max-width: 800px) {
     nav {
         flex-wrap: wrap;

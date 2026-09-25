@@ -24,3 +24,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('wiki/', include('wiki.urls')),
 ]
+
+handler404 = "wiki.views.custom_404"

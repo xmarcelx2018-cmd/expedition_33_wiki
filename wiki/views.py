@@ -174,3 +174,6 @@ class WikiDelete(LoginRequiredMixin, DeleteView):
 
 def home(request):
     return render(request, "wiki/home.html")
+
+def custom_404(request, exception):
+    return render(request, "errors/404.html", status=404)
