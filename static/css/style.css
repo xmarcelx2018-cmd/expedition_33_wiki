@@ -460,6 +460,10 @@ a:hover {
     border-radius: 4px;
 }
 
+.character-detail-image-wrapper {
+    height: 420px;
+}
+
 .character-detail-image {
     display: block;
     width: 100%;
