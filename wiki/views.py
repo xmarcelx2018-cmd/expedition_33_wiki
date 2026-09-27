@@ -1,3 +1,4 @@
+from django.db.models.functions import Lower
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -46,7 +47,9 @@ class WikiList(ListView):
     context_object_name = 'wiki_entries'
 
     def get_queryset(self):
-        return WikiEntry.objects.filter(category=self.category)
+        return WikiEntry.objects.filter(
+            category=self.category
+        ).order_by(Lower('title'))
 
 
 class MyEntries(LoginRequiredMixin, ListView):
@@ -174,6 +177,7 @@ class WikiDelete(LoginRequiredMixin, DeleteView):
 
 def home(request):
     return render(request, "wiki/home.html")
+
 
 def custom_404(request, exception):
     return render(request, "errors/404.html", status=404)
