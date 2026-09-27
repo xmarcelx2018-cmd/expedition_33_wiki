@@ -16,16 +16,29 @@
         </div>
 
         {% if wiki_entry.image %}
-            <div
-                class="character-detail-image-wrapper"
-                style="background-image: url('{{ wiki_entry.image.url }}');"
-            >
+            {% if wiki_entry.category == "character" %}
+                <div class="character-detail-image-wrapper">
+                    <img
+                        src="{{ wiki_entry.image.url }}"
+                        alt="{{ wiki_entry.title }}"
+                        class="character-detail-image"
+                    >
+                </div>
+
+            {% elif wiki_entry.category == "weapon" %}
                 <img
                     src="{{ wiki_entry.image.url }}"
                     alt="{{ wiki_entry.title }}"
-                    class="character-detail-image"
+                    class="weapon-detail-image"
                 >
-            </div>
+
+            {% elif wiki_entry.category == "location" %}
+                <img
+                    src="{{ wiki_entry.image.url }}"
+                    alt="{{ wiki_entry.title }}"
+                    class="location-detail-image"
+                >
+            {% endif %}
         {% endif %}
 
         <div class="detail-content">
